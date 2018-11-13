@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :found_animals
+  resources :found_animals, except: [:destroy]
   resources :lost_animals
   resources :users
   resources :incidents
