@@ -1,0 +1,15 @@
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+/Users/jamesbedwell/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181113-8358-g4f44x.rb extconf.rb
+creating Makefile
+
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20181113-8358-1mziowz/bindex

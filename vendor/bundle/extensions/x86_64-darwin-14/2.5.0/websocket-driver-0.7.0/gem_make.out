@@ -1,0 +1,15 @@
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/websocket-driver-0.7.0/ext/websocket-driver
+/Users/jamesbedwell/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181113-8358-1tyr7jm.rb extconf.rb
+creating Makefile
+
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/jamesbedwell/wdi/project3/Emergency-Animal-Finder/vendor/bundle/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20181113-8358-qh2i7z
