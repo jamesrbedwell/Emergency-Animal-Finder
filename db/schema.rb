@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_231153) do
+ActiveRecord::Schema.define(version: 2018_11_13_235422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_231153) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "claim_status"
+    t.text "image_url"
     t.index ["incident_id"], name: "index_lost_animals_on_incident_id"
     t.index ["user_id"], name: "index_lost_animals_on_user_id"
   end
