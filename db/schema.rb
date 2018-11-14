@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_015001) do
+ActiveRecord::Schema.define(version: 2018_11_14_035917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_015001) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
   create_table "lost_animals", force: :cascade do |t|
@@ -52,11 +53,8 @@ ActiveRecord::Schema.define(version: 2018_11_14_015001) do
     t.datetime "updated_at", null: false
     t.string "claim_status"
     t.text "image_url"
-<<<<<<< HEAD
-=======
     t.string "lat"
     t.string "long"
->>>>>>> map
     t.index ["incident_id"], name: "index_lost_animals_on_incident_id"
     t.index ["user_id"], name: "index_lost_animals_on_user_id"
   end
@@ -67,7 +65,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_015001) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_privilege"
+    t.boolean "admin_privilege", default: false
   end
 
   add_foreign_key "found_animals", "incidents"

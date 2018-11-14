@@ -1,0 +1,11 @@
+<h2>Lost Animals</h2>
+<% @lost_animals.each do |animal| %>
+  <a href="<%= lost_animal_path(animal) %>">
+    <div class="animal-list">
+      <img src="<%= animal.image_url %>" alt="Lost <%= animal.species %>">
+      <h3><%= animal.species %></h3>
+      <h4>Lost at: <%= animal.location_lost %></h4>
+      <h4>Date lost: <%= animal.date_lost %></h4>
+    </div>
+  </a>
+<% end %>
