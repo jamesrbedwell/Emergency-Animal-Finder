@@ -1,0 +1,12 @@
+
+
+<h2>Current Incidents</h2>
+
+<% @incidents.each do |incident| %>
+<p>
+  <a href="/incidents/<%= incident.id %>"> <%= incident.name%> </a>
+  <% end %>
+
+
+
+</p>
