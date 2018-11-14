@@ -1,7 +1,7 @@
 class FoundAnimalsController < ApplicationController
 
   def index
-    @found_animals = FoundAnimal.all
+    @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
   end
 
   def show
@@ -10,8 +10,8 @@ class FoundAnimalsController < ApplicationController
 
   def new
     @incidents = Incident.all
-    @health_status = FoundAnimal::HEALTH
-    @species = FoundAnimal::SPECIES
+    @health_status = Animal::HEALTH
+    @species = Animal::SPECIES
     #@user = session.user
   end
 
@@ -21,11 +21,17 @@ class FoundAnimalsController < ApplicationController
     animal.date_found = params[:date_found]
     animal.location_found = params[:location_found]
     animal.location_current = params[:location_current]
+    animal.lat = Geocoder.coordinates(animal.location_current).first
+    animal.long = Geocoder.coordinates(animal.location_current).last
     animal.image_url = params[:image_url]
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
-    animal.user_id = 1 #should be session user id
+    animal.user_id = session[:user_id] #should be session user id
     animal.tags = params[:tags].split(' ')
+    animal.tags.unshift(animal.species)
+    animal.tags.unshift(animal.health_status)
+    animal.tags.unshift(animal.location_found)
+    animal.tags = animal.tags.uniq
     animal.claim_status = 'found'
     if animal.save
       redirect_to(found_animals_path)
@@ -37,9 +43,9 @@ class FoundAnimalsController < ApplicationController
   def edit
     @animal = FoundAnimal.find(params[:id])
     @incidents = Incident.all
-    @animal_species = FoundAnimal::SPECIES
-    @health_status = FoundAnimal::HEALTH
-    @claim_status = FoundAnimal::CLAIM
+    @animal_species = Animal::SPECIES
+    @health_status = Animal::HEALTH
+    @claim_status = Animal::CLAIM
   end
 
   def update
@@ -52,6 +58,10 @@ class FoundAnimalsController < ApplicationController
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
     animal.tags = params[:tags].split(' ')
+    animal.tags.unshift(animal.species)
+    animal.tags.unshift(animal.health_status)
+    animal.tags.unshift(animal.location_found)
+    animal.tags = animal.tags.uniq
     animal.claim_status = params[:claim_status]
     if animal.save
       redirect_to(found_animal_path(animal))

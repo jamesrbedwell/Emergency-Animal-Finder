@@ -1,4 +1,4 @@
-<h2>Please add the details for the animal you have found</h2>
+<h2 class="page-title">Please add the details for the animal you have found</h2>
 <%= form_tag found_animals_path, method: :post do %>
   <label for="">Incident</label>
   <select name="incident_id" id="">
@@ -20,6 +20,7 @@
   <input type="text" name="location_current">
   <label for="">Link to Image of Animal</label>
   <input type="url" name="image_url">
+  <%= file_field :post, :image %>
   <label for="">Health Status</label>
   <select name="health_status" id="">
     <% @health_status.each do |status| %>
