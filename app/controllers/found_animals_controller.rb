@@ -24,7 +24,7 @@ class FoundAnimalsController < ApplicationController
     animal.image_url = params[:image_url]
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
-    animal.user_id = 1 #should be session user id
+    animal.user_id = session[:user_id] #should be session user id
     animal.tags = params[:tags].split(' ')
     animal.tags.unshift(animal.species)
     animal.tags.unshift(animal.health_status)
