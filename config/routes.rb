@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   
   get '/login', to: 'session#new'
   post 'session', to: 'session#create'
-  get '/users/new', to: 'users#new'
-  post '/users', to: 'users#create'
   get 'session/:id', to: 'session#show'
   resources :incidents, only: [:index, :show, :create, :delete] 
 
