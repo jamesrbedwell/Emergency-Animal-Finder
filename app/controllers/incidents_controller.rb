@@ -4,5 +4,9 @@ class IncidentsController < ApplicationController
     @incidents = Incident.all 
   end
 
+  def show
+    @incident = Incident.find(params[:id])
+  end
 
+  
 end
