@@ -1,13 +1,10 @@
-
-
-<form action="/session" method='post'>
-<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+ <%= form_tag "/session", method: "create" do%>
 <label for=''>Email</label>
 <input type='email' name='email'>
 <label for=''>Password</label>
 <input type='password' name='password'>
 <button>Login</button>
-</form>
+ <% end %>
 
 <p> New user ? </p>
 <a href='/users/new'> Sign Up </a>

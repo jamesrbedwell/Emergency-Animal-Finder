@@ -2,18 +2,14 @@ class IncidentsController < ApplicationController
 
   def index
     @incidents = Incident.all 
-    users = User.all
-    users.each do |user| 
-      if user.user_privilege
-        render layout: 'admin'
-      else
-        render :index
-      end
+    @current_user = User.find_by(email: params[:email])
+    if @current_user.admin_privilege
+      render layout: 'admin'
+    end
   end
 
   def show
     @incident = Incident.find(params[:id])
   end
 
-  
 end

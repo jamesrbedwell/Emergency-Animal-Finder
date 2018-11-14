@@ -10,6 +10,17 @@
   </head>
 
   <body>
+  
+    <% @current_user = User.find_by(id: session[:user_id])%>
+    <%if @current_user%>
+
+      <p>logged in as <%= @current_user.name %></p>
+
+      <%= link_to "Log out", session_path, method: "delete" %>
+
+    <% end %>
+
+
     <%= yield %>
   </body>
 </html>

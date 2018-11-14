@@ -10,17 +10,23 @@
   </head>
 
   <body>
-    <h2>Current Incidents</h2>
+  
+   <% @current_user = User.find_by(id: session[:user_id])%>
+    <%if @current_user%>
 
-    <% @incidents.each do |incident| %>
-    <p>
-    <a href="/incidents/<%= incident.id %>"> <%= incident.name%> </a>
+      <p>logged in as <%= @current_user.name %></p>
+
+      <%= link_to "Log out", session_path, method: "delete" %>
+      
     <% end %>
-
-
+        <% @incidents.each do |incident| %>
+    <p>
+      <a href="/incidents/<%= incident.id %>"> <%= incident.name%> </a>
+      <%= link_to "Delete", session_path, method: "delete" %>
+      <% end %>
 
     </p>
-    
+
     <%= yield %>
   </body>
 </html>
