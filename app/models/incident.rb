@@ -1,12 +1,6 @@
 class Incident < ApplicationRecord
-
-  def index
-    @incidents = Incident.all
-  end
-
-  def new
-    # render :new (this is not mandatory, it's implied)
-  end
-
-
+    has_many :lost_animals
+    has_many :found_animals
+    has_many :users, through: :lost_animals
+    has_many :users, through: :found_animals
 end
