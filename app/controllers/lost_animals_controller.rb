@@ -23,6 +23,8 @@ class LostAnimalsController < ApplicationController
       animal.incident_id = params[:incident_id]
       animal.user_id = 1 #should be session user id
       animal.tags = params[:tags].split(' ')
+      animal.tags.unshift(animal.species)
+      animal.tags.unshift(animal.location_lost)
       if animal.save
         redirect_to(lost_animals_path)
       else
@@ -44,6 +46,8 @@ class LostAnimalsController < ApplicationController
       animal.image_url = params[:image_url]
       animal.incident_id = params[:incident_id]
       animal.tags = params[:tags].split(' ')
+      animal.tags.unshift(animal.species)
+      animal.tags.unshift(animal.location_lost)
       animal.claim_status = params[:claim_status]
       if animal.save
         redirect_to(lost_animal_path(animal))
