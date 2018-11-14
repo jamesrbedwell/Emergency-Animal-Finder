@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root "incidents#index"
 
   resources :found_animals
+=======
+  resources :found_animals, except: [:destroy]
+>>>>>>> master
   resources :lost_animals
   resources :users
   resources :incidents, only: [:index, :show, :create, :delete] 
