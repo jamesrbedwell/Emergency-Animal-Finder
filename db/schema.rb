@@ -52,11 +52,8 @@ ActiveRecord::Schema.define(version: 2018_11_14_015001) do
     t.datetime "updated_at", null: false
     t.string "claim_status"
     t.text "image_url"
-<<<<<<< HEAD
-=======
     t.string "lat"
     t.string "long"
->>>>>>> map
     t.index ["incident_id"], name: "index_lost_animals_on_incident_id"
     t.index ["user_id"], name: "index_lost_animals_on_user_id"
   end
