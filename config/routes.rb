@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resources :found_animals, except: [:destroy]
   resources :lost_animals
   resources :users
+  resources :incidents, only: [:index, :show, :create, :delete] 
   
   get '/login', to: 'session#new'
   post 'session', to: 'session#create'
-  get 'session/:id', to: 'session#show'
-  resources :incidents, only: [:index, :show, :create, :delete] 
+  delete 'session', to: 'session#destroy'
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
