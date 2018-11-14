@@ -6,6 +6,8 @@ class FoundAnimal < ApplicationRecord
 
   HEALTH = ['healthy', 'injured', 'severe']
 
+  CLAIM = ['lost', 'found', 're-united']
+
 end
 
 

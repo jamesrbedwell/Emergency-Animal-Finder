@@ -26,7 +26,7 @@ class FoundAnimalsController < ApplicationController
     animal.incident_id = params[:incident_id]
     animal.user_id = 1 #should be session user id
     animal.tags = params[:tags].split(' ')
-    animal.claim_status = 'Found'
+    animal.claim_status = 'found'
     if animal.save
       redirect_to(found_animals_path)
     else
@@ -39,6 +39,7 @@ class FoundAnimalsController < ApplicationController
     @incidents = Incident.all
     @animal_species = FoundAnimal::SPECIES
     @health_status = FoundAnimal::HEALTH
+    @claim_status = FoundAnimal::CLAIM
   end
 
   def update
