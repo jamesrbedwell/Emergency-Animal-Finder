@@ -1,7 +1,7 @@
 class FoundAnimalsController < ApplicationController
 
   def index
-    @found_animals = FoundAnimal.all
+    @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
   end
 
   def show
