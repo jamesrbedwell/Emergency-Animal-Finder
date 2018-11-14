@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :incidents
   
   get '/login', to: 'session#new'
-  get '/session/create', to: 'session#create'
- 
+  post 'session', to: 'session#create'
+  get '/users/new', to: 'users#new'
+  post '/users', to: 'users#create'
+  get 'session/:id', to: 'session#show'
 end
 
