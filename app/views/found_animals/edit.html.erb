@@ -14,9 +14,9 @@
   <select name="species" id="">
     <% @animal_species.each do |species| %>
       <% if @animal.species === species %>
-        <option value="<%= species %>"><%= species.capitalized() %></option>
+        <option value="<%= species %>"><%= species.capitalize %></option>
       <% else %>  
-        <option value="<% species %>"><%= species.capitalized() %></option>
+        <option value="<% species %>"><%= species.capitalize %></option>
       <% end %>
     <% end  %>
   </select>
@@ -32,13 +32,13 @@
   <select name="health_status" id="">
     <% @health_status.each do |status| %>
       <% if @animal.health_status === status %>
-        <option value="<%= status %>" selected><%= status.capitalized %></option>
+        <option value="<%= status %>" selected><%= status.capitalize %></option>
       <% else %>
-        <option value="<%= status %>"><%= status.capitalized %></option>
+        <option value="<%= status %>"><%= status.capitalize %></option>
       <% end  %>
     <% end  %>
   </select>
   <label for="">Please enter single word tags</label>
-  <textarea name="tags" value="<%= @animal.tags.join(' ')%>"></textarea>
+  <textarea name="tags" value="tags"><%= @animal.tags.join(' ') %></textarea>
   <button>Edit Animal</button>
 <% end %>

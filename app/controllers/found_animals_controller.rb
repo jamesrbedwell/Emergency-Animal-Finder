@@ -36,6 +36,7 @@ class FoundAnimalsController < ApplicationController
 
   def edit
     @animal = FoundAnimal.find(params[:id])
+    @incidents = Incident.all
     @animal_species = FoundAnimal::SPECIES
     @health_status = FoundAnimal::HEALTH
   end

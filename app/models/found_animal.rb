@@ -4,7 +4,7 @@ class FoundAnimal < ApplicationRecord
 
   SPECIES = ['dog', 'cat', 'turtle', 'chicken', 'horse', 'bird']
 
-  HEALTH = ['healthy', 'inured', 'severe']
+  HEALTH = ['healthy', 'injured', 'severe']
 
 end
 
