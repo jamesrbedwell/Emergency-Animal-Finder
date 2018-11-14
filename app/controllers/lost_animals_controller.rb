@@ -25,6 +25,7 @@ class LostAnimalsController < ApplicationController
       animal.tags = params[:tags].split(' ')
       animal.tags.unshift(animal.species)
       animal.tags.unshift(animal.location_lost)
+      animal.tags = animal.tags.uniq
       if animal.save
         redirect_to(lost_animals_path)
       else
@@ -48,6 +49,7 @@ class LostAnimalsController < ApplicationController
       animal.tags = params[:tags].split(' ')
       animal.tags.unshift(animal.species)
       animal.tags.unshift(animal.location_lost)
+      animal.tags = animal.tags.uniq
       animal.claim_status = params[:claim_status]
       if animal.save
         redirect_to(lost_animal_path(animal))
