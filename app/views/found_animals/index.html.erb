@@ -2,7 +2,7 @@
 <% @found_animals.each do |animal| %>
   <a href="<%= found_animal_path(animal) %>">
     <div class="animal-list">
-      <img src="<%= animal.image_url%>" alt="Lost <%= animal.species %>">
+      <img src="<%= animal.image_url %>" alt="Lost <%= animal.species %>">
       <h3><%= animal.species %></h3>
       <h4>Found at: <%= animal.location_found %></h4>
       <h4>Currently at: <%= animal.location_current %></h4>

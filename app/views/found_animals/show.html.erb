@@ -1,15 +1,15 @@
 <h2>Found Animal</h2>
-<h3><%= @animal.species %></h3>
-<h4><%= @claim.status %></h4>
-<h4><%= @animal.incident %></h4>
+<h3><%= @animal.species.capitalize %></h3>
+<h4><%= @animal.claim_status %></h4>
+<h4><%= @animal.incident.name %></h4>
 <img src="<%= @animal.image_url %>" alt="">
-<h3><%= @animal.found_date %></h3>
-<h3><%= @animal.found_location %></h3>
-<h3><%= @animal.posted_date %></h3>
-<h3><%= @animal.current_location %></h3>
+<h3><%= @animal.date_found %></h3>
+<h3><%= @animal.location_found %></h3>
+<h3><%#= @animal.date_posted %></h3>
+<h3><%= @animal.location_current %></h3>
 <p><%= @animal.health_status %></p>
-<p>Is this animal yours?</p>
-<a href="<%= user_path(@animal.user.id) %>"></a>
+<%# <p>Is this animal yours?</p> %>
+<a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
 <%# <% if %>
 <%# if statement that shows an edit button if animal belongs to users %>
 <%# else %>
