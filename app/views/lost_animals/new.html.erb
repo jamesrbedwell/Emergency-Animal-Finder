@@ -12,20 +12,12 @@
       <option value="<%= species %>"><%= species.capitalize() %></option>
     <% end %>
   </select>
-  <label for="">Date Animal was Found</label>
-  <input type="date" name="date_found">
-  <label for="">Location Animal was Found</label>
-  <input type="text" name="location_found">
-  <label for="">Current Location of Animal</label>
-  <input type="text" name="location_current">
+  <label for="">Date Animal was lost</label>
+  <input type="date" name="date_lost">
+  <label for="">Location Animal was lost</label>
+  <input type="text" name="location_lost">
   <label for="">Link to Image of Animal</label>
   <input type="url" name="image_url">
-  <label for="">Health Status</label>
-  <select name="health_status" id="">
-    <% @health_status.each do |status| %>
-      <option value="<%= status %>"><%= status.capitalize() %></option>
-    <% end %>
-  </select>
   <label for="">Please enter single word tags</label>
   <textarea name="tags"></textarea>
   <button>Add Animal</button>
