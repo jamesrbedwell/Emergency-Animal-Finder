@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     def create
         @current_user = User.find_by(email: params[:email])
         if @current_user && @current_user.authenticate(params[:password])
-                session[:user_id ] = @current_user.id
+                @session[:user_id ] = @current_user.id
                 redirect_to incidents_path
         else
             redirect_to("/login")
