@@ -40,9 +40,7 @@ class LostAnimalsController < ApplicationController
     def update
       animal = LostAnimal.find(params[:id])
       animal.species = params[:species]
-      animal.date_found = params[:date_found]
-      animal.location_found = params[:location_found]
-      animal.location_current = params[:location_current]
+      animal.date_lost = params[:date_lost]
       animal.image_url = params[:image_url]
       animal.incident_id = params[:incident_id]
       animal.tags = params[:tags].split(' ')
