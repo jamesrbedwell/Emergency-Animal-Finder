@@ -57,7 +57,8 @@ class LostAnimalsController < ApplicationController
         render :edit
       end
     end
-    
+  end
+
 end
 
 
