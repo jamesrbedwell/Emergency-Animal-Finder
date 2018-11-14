@@ -10,8 +10,8 @@ class FoundAnimalsController < ApplicationController
 
   def new
     @incidents = Incident.all
-    @health_status = FoundAnimal::HEALTH
-    @species = FoundAnimal::SPECIES
+    @health_status = Animal::HEALTH
+    @species = Animal::SPECIES
     #@user = session.user
   end
 
@@ -37,9 +37,9 @@ class FoundAnimalsController < ApplicationController
   def edit
     @animal = FoundAnimal.find(params[:id])
     @incidents = Incident.all
-    @animal_species = FoundAnimal::SPECIES
-    @health_status = FoundAnimal::HEALTH
-    @claim_status = FoundAnimal::CLAIM
+    @animal_species = Animal::SPECIES
+    @health_status = Animal::HEALTH
+    @claim_status = Animal::CLAIM
   end
 
   def update
