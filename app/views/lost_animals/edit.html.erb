@@ -1,0 +1,43 @@
+<h2>Update the details for the Animal you have lost</h2>
+<%= form_tag lost_animal_path(@animal), method: :put do %>
+  <label for="">Incident</label>
+  <select name="incident_id" id="">
+    <% @incidents.each do |incident| %>
+      <% if @animal.incident.id === incident.id  %>
+        <option value="<%= incident.id %>" selected><%= incident.name %></option>
+      <% else %>
+        <option value="<%= incident.id %>"><%= incident.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <label for="">Species</label>
+  <select name="species" id="">
+    <% @animal_species.each do |species| %>
+      <% if @animal.species === species %>
+        <option value="<%= species %>"><%= species.capitalize %></option>
+      <% else %>  
+        <option value="<% species %>"><%= species.capitalize %></option>
+      <% end %>
+    <% end  %>
+  </select>
+  <label for="">Date Animal was lost</label>
+  <input type="date" name="date_lost" value="<%= @animal.date_lost %>">
+  <label for="">Location of the Animal lost</label>
+  <input type="text" name="location_lost" value="<%= @animal.location_lost %>">
+  <label for="">Link to Image of Animal</label>
+  <input type="url" name="image_url" value="<%= @animal.image_url %>">
+
+  <label for="">Please enter single word tags</label>
+  <textarea name="tags" value="tags"><%= @animal.tags.join(' ') %></textarea>
+  <label for="">Claim Status</label>
+  <select name="claim_status" id="">
+    <% @claim_status.each do |status| %>
+      <% if @animal.claim_status === status %>
+        <option value="<%= status %>" selected><%= status.capitalize %></option>
+      <% else %>
+        <option value="<%= status %>"><%= status.capitalize %></option>
+      <% end %>
+    <% end  %>
+  </select>
+  <button>Edit Animal</button>
+<% end %>
