@@ -1,9 +1,7 @@
+<h2 class="page-title">Current Incidents</h2>
 
-
-<h2>Current Incidents</h2>
-
-<% @incidents.each do |incident| %>
-<p>
-  <a href="/incidents/<%= incident.id %>"> <%= incident.name%> </a>
+<div class="incident-container">
+  <% @incidents.each do |incident| %>
+    <a href="/incidents/<%= incident.id %>"> <%= incident.name%> </a>
   <% end %>
-</p>
+</div>

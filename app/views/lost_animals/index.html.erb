@@ -1,7 +1,12 @@
-<h2>Lost Animals</h2>
+<h2 class="page-title">Lost Animals</h2>
+<form action="" class="search-form">
+  <input type="text" class="search-input">
+  <button>Search</button>
+</form>
 <% @lost_animals.each do |animal| %>
   <a href="<%= lost_animal_path(animal) %>">
-    <div class="animal-list">
+    <div class="animal-item">
+      <h5 class="tags"><%= animal.tags.join(' ') %></h5>
       <img src="<%= animal.image_url %>" alt="Lost <%= animal.species %>">
       <h3><%= animal.species %></h3>
       <h4>Lost at: <%= animal.location_lost %></h4>
@@ -9,3 +14,24 @@
     </div>
   </a>
 <% end %>
+
+<script>
+let searchInput = document.querySelector('.search-input')
+let searchForm = document.querySelector('.search-form')
+let results = document.querySelectorAll('.animal-item')
+
+function search(event) {
+  event.preventDefault()
+  results.forEach(animal => {
+    if (event.target.value === "") {
+      animal.style.display = "none"
+    } else if (animal.firstElementChild.textContent.includes(event.target.value)) {
+      animal.style.display = "block"
+    } else (
+      animal.style.display = "none"
+    )
+  })
+}
+searchForm.addEventListener('submit', search)
+searchInput.addEventListener('keyup', search)
+</script>

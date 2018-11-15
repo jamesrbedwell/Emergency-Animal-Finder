@@ -29,31 +29,34 @@ class LostAnimalsController < ApplicationController
       redirect_to(lost_animals_path)
     else
       render :new
+    def show
+      @animal = LostAnimal.find(params[:id])
+    end
+  
+    def edit
+      @animal = LostAnimal.find(params[:id])
+      @incidents = Incident.all
+      @animal_species = Animal::SPECIES
+      @claim_status = Animal::CLAIM
+    end
+  
+    def update
+      animal = LostAnimal.find(params[:id])
+      animal.species = params[:species]
+      animal.date_lost = params[:date_lost]
+      animal.image = params[:post][:image]
+      animal.incident_id = params[:incident_id]
+      animal.tags = params[:tags].split(' ')
+      animal.tags.unshift(animal.species)
+      animal.tags.unshift(animal.location_lost)
+      animal.tags = animal.tags.uniq
+      animal.claim_status = params[:claim_status]
+      if animal.save
+        redirect_to(lost_animal_path(animal))
+      else
+        render :edit
+      end
     end
   end
-
-  def edit
-    @animal = LostAnimal.find(params[:id])
-    @incidents = Incident.all
-    @animal_species = Animal::SPECIES
-    @claim_status = Animal::CLAIM
-  end
-
-  def update
-    animal = LostAnimal.find(params[:id])
-    animal.species = params[:species]
-    animal.date_lost = params[:date_lost]
-    animal.image_url = params[:image_url]
-    animal.incident_id = params[:incident_id]
-    animal.tags = params[:tags].split(' ')
-    animal.claim_status = params[:claim_status]
-    if animal.save
-      redirect_to(lost_animal_path(animal))
-    else
-      render :edit
-    end
-  end
-
-end
 
 

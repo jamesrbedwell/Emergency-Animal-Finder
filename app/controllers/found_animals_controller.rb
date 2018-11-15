@@ -28,6 +28,10 @@ class FoundAnimalsController < ApplicationController
     animal.incident_id = params[:incident_id]
     animal.user_id = 1 #should be session user id
     animal.tags = params[:tags].split(' ')
+    animal.tags.unshift(animal.species)
+    animal.tags.unshift(animal.health_status)
+    animal.tags.unshift(animal.location_found)
+    animal.tags = animal.tags.uniq
     animal.claim_status = 'found'
     if animal.save
       redirect_to(found_animals_path)
@@ -54,6 +58,10 @@ class FoundAnimalsController < ApplicationController
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
     animal.tags = params[:tags].split(' ')
+    animal.tags.unshift(animal.species)
+    animal.tags.unshift(animal.health_status)
+    animal.tags.unshift(animal.location_found)
+    animal.tags = animal.tags.uniq
     animal.claim_status = params[:claim_status]
     if animal.save
       redirect_to(found_animal_path(animal))
