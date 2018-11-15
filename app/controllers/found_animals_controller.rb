@@ -32,10 +32,10 @@ class FoundAnimalsController < ApplicationController
     animal.tags.unshift(animal.health_status)
     animal.tags.unshift(animal.location_found)
     animal.tags = animal.tags.uniq
-    animal_tags.map! do |tag|
+    animal.tags.map! do |tag|
       tag.downcase
     end
-    animal.claim_status = 'found'
+    animal.claim_status = false
     if animal.save
       redirect_to(found_animals_path)
     else

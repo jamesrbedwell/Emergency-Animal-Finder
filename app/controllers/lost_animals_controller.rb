@@ -42,6 +42,18 @@ class LostAnimalsController < ApplicationController
       @animal_species = Animal::SPECIES
       @claim_status = Animal::CLAIM
     end
+  end
+
+  def show
+    @animal = LostAnimal.find(params[:id])
+  end
+
+  def edit
+    @animal = LostAnimal.find(params[:id])
+    @incidents = Incident.all
+    @animal_species = Animal::SPECIES
+    @claim_status = Animal::CLAIM
+  end
   
     def update
       animal = LostAnimal.find(params[:id])
@@ -53,7 +65,7 @@ class LostAnimalsController < ApplicationController
       animal.tags.unshift(animal.species)
       animal.tags.unshift(animal.location_lost)
       animal.tags = animal.tags.uniq
-      animal_tags.map! do |tag|
+      animal.tags.map! do |tag|
         tag.downcase
       end
       animal.claim_status = params[:claim_status]
@@ -64,5 +76,6 @@ class LostAnimalsController < ApplicationController
       end
     end
   end
-
+  
+end
 

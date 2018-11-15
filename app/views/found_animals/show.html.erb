@@ -2,7 +2,7 @@
 <h3><%= @animal.species.capitalize %></h3>
 <h4><%= @animal.claim_status %></h4>
 <h4><%= @animal.incident.name %></h4>
-<img src="<%= @animal.image %>" alt="">
+<img src="<%= @animal.image.url %>" alt="">
 <h3><%= @animal.date_found %></h3>
 <h3><%= @animal.location_found %></h3>
 <h3><%#= @animal.date_posted %></h3>
