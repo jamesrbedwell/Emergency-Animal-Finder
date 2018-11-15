@@ -41,7 +41,6 @@ class LostAnimalsController < ApplicationController
     end
   end
   
-<<<<<<< HEAD
     def edit
       @animal = LostAnimal.find(params[:id])
       @incidents = Incident.all
@@ -49,14 +48,6 @@ class LostAnimalsController < ApplicationController
       @claim_status = Animal::CLAIM
     end
 
-=======
-  def edit
-    @animal = LostAnimal.find(params[:id])
-    @incidents = Incident.all
-    @animal_species = Animal::SPECIES
-  end
-  
->>>>>>> edaaf19bfa5260c0890bc877a0974ff772c9b8bb
 
   def show
     @animal = LostAnimal.find(params[:id])
@@ -68,28 +59,6 @@ class LostAnimalsController < ApplicationController
     @animal_species = Animal::SPECIES
   end
   
-<<<<<<< HEAD
-    def update
-      animal = LostAnimal.find(params[:id])
-      animal.species = params[:species]
-      animal.date_lost = params[:date_lost]
-      animal.image = params[:image]
-      animal.incident_id = params[:incident_id]
-      animal.tags = params[:tags].split(' ')
-      animal.tags.unshift(animal.species)
-      animal.tags.unshift(animal.location_lost)
-      animal.tags = animal.tags.uniq
-      animal.tags.map! do |tag|
-        tag.downcase
-      end
-      animal.claim_status = params[:claim_status]
-      if animal.save
-        redirect_to(lost_animal_path(animal))
-      else
-        render :edit
-      end
-    end 
-=======
   def update
     animal = LostAnimal.find(params[:id])
     animal.species = params[:species]
@@ -111,6 +80,5 @@ class LostAnimalsController < ApplicationController
     end
   end
   
->>>>>>> edaaf19bfa5260c0890bc877a0974ff772c9b8bb
 end
 

@@ -1,5 +1,4 @@
 class FoundAnimalsController < ApplicationController
-
   def index
     if params[:incident]
       @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
