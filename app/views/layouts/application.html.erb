@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans|Raleway', media: 'all' %>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <nav>
@@ -16,6 +17,7 @@
   </nav>
 
   <body>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
   
     <% @current_user = User.find_by(id: session[:user_id])%>
     <%if @current_user%>
@@ -25,7 +27,6 @@
       <%= link_to "Log out", session_path, method: "delete" %>
 
     <% end %>
-
 
     <%= yield %>
   </body>
