@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-if (window.location.pathname.includes('found_animals?incident') || window.location.pathname.includes('lost_animals?incident')) {
-=======
-if (window.location.href.includes('found_animals') || window.location.href.includes('lost_animals')) {
->>>>>>> edaaf19bfa5260c0890bc877a0974ff772c9b8bb
+if (window.location.pathname == '/found_animals' || window.location.pathname == '/lost_animals') {
   let searchInput = document.querySelector('.search-input')
   let searchForm = document.querySelector('.search-form')
   let results = document.querySelectorAll('.animal-item')
