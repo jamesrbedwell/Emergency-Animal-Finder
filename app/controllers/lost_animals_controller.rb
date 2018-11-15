@@ -65,7 +65,7 @@ class LostAnimalsController < ApplicationController
       animal.tags.unshift(animal.species)
       animal.tags.unshift(animal.location_lost)
       animal.tags = animal.tags.uniq
-      animal_tags.map! do |tag|
+      animal.tags.map! do |tag|
         tag.downcase
       end
       animal.claim_status = params[:claim_status]
