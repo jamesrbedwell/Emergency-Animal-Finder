@@ -32,11 +32,14 @@ class FoundAnimalsController < ApplicationController
     animal.tags.unshift(animal.health_status)
     animal.tags.unshift(animal.location_found)
     animal.tags = animal.tags.uniq
+    animal_tags.map! do |tag|
+      tag.downcase
+    end
     animal.claim_status = 'found'
     if animal.save
       redirect_to(found_animals_path)
     else
-      render :new
+      redirect_to '/login'
     end
   end
 
@@ -62,6 +65,9 @@ class FoundAnimalsController < ApplicationController
     animal.tags.unshift(animal.health_status)
     animal.tags.unshift(animal.location_found)
     animal.tags = animal.tags.uniq
+    animal_tags.map! do |tag|
+      tag.downcase
+    end
     animal.claim_status = params[:claim_status]
     if animal.save
       redirect_to(found_animal_path(animal))
