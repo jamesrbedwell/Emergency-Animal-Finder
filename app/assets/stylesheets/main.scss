@@ -1,35 +1,109 @@
+/* COLORS */
+$primary-color: #78C2AD;
+$secondary-color: #F3969A;
+$thirdary-color: #f7f7f9;
+$success-color: #56CC9D;
+$info-color: #6CC3D5;
+$warning-color: #FFCE67;
+$danger-color: #FF7851;
+$font-primary-color: #888;
+$font-secondary-color: #FFF;
+
+/* FONTS */
+$lato: 'Lato', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
+$raleway: 'Raleway', sans-serif;
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: rgb(228, 228, 228);
+  margin: 0;
+  background-color: #FFF;
   font-family: 'Open Sans', sans-serif;
 }
 
-.page-title {
+nav {
+  width: 100%;
+  background-color: $primary-color;
+  height: 60px; 
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+nav h1 {
   font-size: 3rem;
+  font-family: $raleway;
+  color: $font-secondary-color;
+  margin: 0px 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: $font-secondary-color;
+  opacity: 0.6;
+  font-family: $lato;
+  font-weight: bold;
+  margin: 0px 10px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  transition: all ease-in-out 0.3s;
+}
+
+nav a:hover {
+  opacity: 1;
+  transition: all ease-in-out 0.3s;
+}
+
+.user-links {
+  margin-left: auto;
+}
+
+.user-links, .user-links a {
+  font-size: 0.6rem;
+  color: #FFF;
+  opacity: 0.8;
+}
+
+.page-title {
+  color: $font-primary-color;
+  font-size: 3rem;
+  font-family: $lato;
+  font-weight: 900;
   text-transform: uppercase;
   text-align: center;
   margin: 0;
+  margin-top: 30px;
 }
 
-.incident-container {
+.page-title span {
+  color: $info-color;
+  font-size: 2.5rem;
+}
+
+.sub-title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: $secondary-color;
+}
+
+.form-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: $thirdary-color;
+  border-radius: 20px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
-  align-items: center;
+  padding: 5%;
 }
 
-.incident-container a {
-  font-family: 'Raleway', sans-serif;
-  width: 100%;
-  margin: 10px;
-  padding: 40px 0;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  background-color: rgb(68, 68, 68);  
-  font-size: 2rem;
-}

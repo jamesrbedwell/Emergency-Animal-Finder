@@ -1,0 +1,14 @@
+<p><%=@current_user.name%></p>
+<p><%=@current_user.email%></p>
+
+<p>Lost Animals</p>
+<%@animals_lost.each do |animal_lost|%>
+<p><%=animal_lost.species%></p>
+<%end%>
+
+<p>Found Animals</p>
+<%@animals_found.each do |animal_found|%>
+<p><%=animal_found.species%></p>
+<img src='<%=animal_found.image%>'>
+<%end%>
+

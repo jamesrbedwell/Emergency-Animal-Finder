@@ -1,7 +1,10 @@
 class FoundAnimalsController < ApplicationController
-
   def index
-    @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
+    if params[:incident]
+      @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
+    else
+      @found_animals = FoundAnimal.all
+    end
   end
 
   def show
@@ -32,11 +35,14 @@ class FoundAnimalsController < ApplicationController
     animal.tags.unshift(animal.health_status)
     animal.tags.unshift(animal.location_found)
     animal.tags = animal.tags.uniq
-    animal.claim_status = 'found'
+    animal.tags.map! do |tag|
+      tag.downcase
+    end
+    animal.reunited = false
     if animal.save
       redirect_to(found_animals_path)
     else
-      render :new
+      redirect_to '/login'
     end
   end
 
@@ -45,7 +51,6 @@ class FoundAnimalsController < ApplicationController
     @incidents = Incident.all
     @animal_species = Animal::SPECIES
     @health_status = Animal::HEALTH
-    @claim_status = Animal::CLAIM
   end
 
   def update
@@ -62,7 +67,10 @@ class FoundAnimalsController < ApplicationController
     animal.tags.unshift(animal.health_status)
     animal.tags.unshift(animal.location_found)
     animal.tags = animal.tags.uniq
-    animal.claim_status = params[:claim_status]
+    animal_tags.map! do |tag|
+      tag.downcase
+    end
+    animal.reunited = params[:reunited]
     if animal.save
       redirect_to(found_animal_path(animal))
     else

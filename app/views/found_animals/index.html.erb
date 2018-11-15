@@ -1,10 +1,3 @@
-<style>
-  #mapContainer {
-    position: absolute;
-    height: 50%;
-    width: 70%;
-  }
-</style>
 
 <h2 class="page-title">Found Animals</h2>
 <form action="" class="search-form">
@@ -27,24 +20,3 @@
     </div>
   </a>
 <% end %>
-
-<script>
-let searchInput = document.querySelector('.search-input')
-let searchForm = document.querySelector('.search-form')
-let results = document.querySelectorAll('.animal-item')
-
-function search(event) {
-  event.preventDefault()
-  results.forEach(animal => {
-    if (event.target.value === "") {
-      animal.style.display = "none"
-    } else if (animal.firstElementChild.textContent.includes(event.target.value)) {
-      animal.style.display = "block"
-    } else (
-      animal.style.display = "none"
-    )
-  })
-}
-searchForm.addEventListener('submit', search)
-searchInput.addEventListener('keyup', search)
-</script>

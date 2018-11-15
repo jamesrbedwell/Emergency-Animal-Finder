@@ -1,30 +1,31 @@
-<h2 class="page-title">Please add the details for the animal you have lost</h2>
-<%= form_tag lost_animals_path, method: :post do %>
-  <label for="">Incident</label>
-  <select name="incident_id" id="">
-    <% @incidents.each do |incident| %>
-      <option value="<%= incident.id %>"><%= incident.name %></option>
-    <% end %>
-  </select>
-  <label for="">Species</label>
-  <select name="species" id="">
-    <% @species.each do |species| %>
-      <option value="<%= species %>"><%= species.capitalize() %></option>
-    <% end %>
-  </select>
-  <label for="">Date Animal was lost</label>
-  <input type="date" name="date_lost.date_cannot_be_in_the_past">
-  <label for="">Location Animal was lost</label>
-  <input type="text" name="location_lost">
-  <label for="">Link to Image of Animal</label>
-  <input type="url" name="image">
-  <%= file_field :post, :image %>
-  <label for="">Please enter single word tags</label>
-  <textarea name="tags"></textarea>
+<h2 class="page-title">Have you lost an Animal?</h2>
+<h5 class="sub-title">Please enter the Animal's details below.</h5>
 
-  <%#= label :image %><br>
-  <%#= file_field :image %>
-
-
-  <button>Add Animal</button>
-<% end %>
+<div class="form-container">
+  <%= form_tag lost_animals_path, enctype: 'multipart/form-data', method: :post do %>
+    <div class="form">
+      <label for="">Incident</label>
+      <select name="incident_id" id="">
+        <% @incidents.each do |incident| %>
+          <option value="<%= incident.id %>"><%= incident.name %></option>
+        <% end %>
+      </select>
+      <label for="">Species</label>
+      <select name="species" id="">
+        <% @species.each do |species| %>
+          <option value="<%= species %>"><%= species.capitalize() %></option>
+        <% end %>
+      </select>
+      <label for="">Date Animal was lost</label>
+      <input type="date" name="date_lost.date_cannot_be_in_the_past">
+      <label for="">Location Animal was lost</label>
+      <input type="text" name="location_lost">
+      <label for="">Link to Image of Animal</label>
+      <input type="url" name="image_url">
+      <%= file_field :post, :image %>
+      <label for="">Please enter single word tags</label>
+      <textarea name="tags"></textarea>
+      <button>Add Animal</button>
+    </div>
+  <% end %>
+</div>

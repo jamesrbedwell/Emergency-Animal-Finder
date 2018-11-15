@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :incidents, only: [:index, :show, :create, :delete] 
   
   get '/login', to: 'session#new'
+  get '/profiles/:id', to: 'profiles#show'
+  delete 'incidents/:id', to: 'incidents#destroy'
   post 'session', to: 'session#create'
   delete 'session', to: 'session#destroy'
 

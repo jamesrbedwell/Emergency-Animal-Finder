@@ -1,7 +1,11 @@
-<h2 class="page-title"> <%= @incident.name %> </h2>
+<h2 class="page-title">INCIDENT: <span><%= @incident.name %></span> </h2>
 
-<a href="/lost_animals?incident=<%= @incident.id %>"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGl2IJBB6MfeKexafIaVh4LXXWwqoDrpMdrRE50nbqrO8Ah49A">
-Lost an animal</a>
+<div class="incident-container">
+  <a href="/lost_animals?incident=<%= @incident.id %>">
+    <h1>Lost an animal</h1>
+  </a>
 
-<a href="/found_animals?incident=<%= @incident.id %>"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLISQLoVzaQwdYnh4f7Pw-bFwd362L4-gF2WYvAZ2o-XwIK5scag">
-Found an animal</a>
+  <a href="/found_animals?incident=<%= @incident.id %>">
+    <h1>Found an animal</h1>
+  </a>
+</div>
