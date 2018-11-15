@@ -42,7 +42,7 @@ class LostAnimalsController < ApplicationController
       @animal_species = Animal::SPECIES
       @claim_status = Animal::CLAIM
     end
-  end
+
 
   def show
     @animal = LostAnimal.find(params[:id])
@@ -74,8 +74,6 @@ class LostAnimalsController < ApplicationController
       else
         render :edit
       end
-    end
-  end
-  
+    end 
 end
 
