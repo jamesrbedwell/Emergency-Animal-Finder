@@ -19,13 +19,16 @@ class LostAnimalsController < ApplicationController
       animal.species = params[:species]
       animal.date_lost = params[:date_lost]
       animal.location_lost = params[:location_lost]
-      animal.image_url = params[:image_url]
+      animal.image = params[:image]
       animal.incident_id = params[:incident_id]
-      animal.user_id = session[:user_id] #should be session user id
+      animal.user_id = 1 #should be session user id
       animal.tags = params[:tags].split(' ')
       animal.tags.unshift(animal.species)
       animal.tags.unshift(animal.location_lost)
       animal.tags = animal.tags.uniq
+      animal_tags.map! do |tag|
+        tag.downcase
+      end
       if animal.save
         redirect_to(lost_animals_path)
       else
@@ -44,12 +47,15 @@ class LostAnimalsController < ApplicationController
       animal = LostAnimal.find(params[:id])
       animal.species = params[:species]
       animal.date_lost = params[:date_lost]
-      animal.image_url = params[:image_url]
+      animal.image = params[:image]
       animal.incident_id = params[:incident_id]
       animal.tags = params[:tags].split(' ')
       animal.tags.unshift(animal.species)
       animal.tags.unshift(animal.location_lost)
       animal.tags = animal.tags.uniq
+      animal_tags.map! do |tag|
+        tag.downcase
+      end
       animal.claim_status = params[:claim_status]
       if animal.save
         redirect_to(lost_animal_path(animal))
@@ -58,7 +64,5 @@ class LostAnimalsController < ApplicationController
       end
     end
   end
-
-end
 
 
