@@ -1,11 +1,3 @@
-<style>
-  #mapContainer {
-    position: absolute;
-    height: 50%;
-    width: 70%;
-  }
-</style>
-
 <h2 class="page-title">Lost Animals</h2>
 <form action="" class="search-form">
   <input type="text" class="search-input">
@@ -22,6 +14,8 @@
       <h3><%= animal.species %></h3>
       <h4>Lost at: <%= animal.location_lost %></h4>
       <h4>Date lost: <%= animal.date_lost %></h4>
+      <span class="lost_lat"><%= animal.lat %></span>
+      <span class="lost_long"><%= animal.long %></span>
     </div>
   </a>
 <% end %>
