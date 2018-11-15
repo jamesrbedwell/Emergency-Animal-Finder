@@ -2,16 +2,12 @@ class IncidentsController < ApplicationController
 
   def index
     @incidents = Incident.all
-<<<<<<< HEAD
-  
-=======
     if session[:user_id] 
       @current_user = User.find_by(id: session[:user_id])
       if @current_user.admin_privilege
         render layout: 'admin'
       end
     end
->>>>>>> master
   end
 
   def show
