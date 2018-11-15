@@ -21,7 +21,7 @@ class LostAnimalsController < ApplicationController
     animal.location_lost = params[:location_lost]
     animal.lat = Geocoder.coordinates(animal.location_lost).first
     animal.long = Geocoder.coordinates(animal.location_lost).last
-    animal.image_url = params[:image_url]
+    animal.image = params[:post][:image]
     animal.incident_id = params[:incident_id]
     animal.user_id = 1 #should be session user id
     animal.tags = params[:tags].split(' ')
