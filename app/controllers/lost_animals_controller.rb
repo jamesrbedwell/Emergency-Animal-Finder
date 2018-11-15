@@ -32,7 +32,7 @@ class LostAnimalsController < ApplicationController
       if animal.save
         redirect_to(lost_animals_path)
       else
-        render :new
+        redirect_to '/login'
       end
     end
   
