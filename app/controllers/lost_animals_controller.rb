@@ -19,7 +19,7 @@ class LostAnimalsController < ApplicationController
       animal.species = params[:species]
       animal.date_lost = params[:date_lost]
       animal.location_lost = params[:location_lost]
-      animal.image_url = params[:image_url]
+      animal.image = params[:image]
       animal.incident_id = params[:incident_id]
       animal.user_id = 1 #should be session user id
       animal.tags = params[:tags].split(' ')
@@ -44,7 +44,7 @@ class LostAnimalsController < ApplicationController
       animal = LostAnimal.find(params[:id])
       animal.species = params[:species]
       animal.date_lost = params[:date_lost]
-      animal.image_url = params[:image_url]
+      animal.image = params[:image]
       animal.incident_id = params[:incident_id]
       animal.tags = params[:tags].split(' ')
       animal.tags.unshift(animal.species)
