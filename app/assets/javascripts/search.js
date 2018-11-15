@@ -1,5 +1,5 @@
 
-if (window.location.href.includes('found_animals?incident') || window.location.href.includes('lost_animals?incident')) {
+if (window.location.href.includes('found_animals') || window.location.href.includes('lost_animals')) {
   let searchInput = document.querySelector('.search-input')
   let searchForm = document.querySelector('.search-form')
   let results = document.querySelectorAll('.animal-item')
