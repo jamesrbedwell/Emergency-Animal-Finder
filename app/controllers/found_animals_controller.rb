@@ -23,10 +23,10 @@ class FoundAnimalsController < ApplicationController
     animal.location_current = params[:location_current]
     animal.lat = Geocoder.coordinates(animal.location_current).first
     animal.long = Geocoder.coordinates(animal.location_current).last
-    animal.image_url = params[:image_url]
+    animal.image = params[:image]
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
-    animal.user_id = session[:user_id] #should be session user id
+    animal.user_id = 1 #should be session user id
     animal.tags = params[:tags].split(' ')
     animal.tags.unshift(animal.species)
     animal.tags.unshift(animal.health_status)
@@ -57,7 +57,7 @@ class FoundAnimalsController < ApplicationController
     animal.date_found = params[:date_found]
     animal.location_found = params[:location_found]
     animal.location_current = params[:location_current]
-    animal.image_url = params[:image_url]
+    animal.image = params[:image]
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
     animal.tags = params[:tags].split(' ')
