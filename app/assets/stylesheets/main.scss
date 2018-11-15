@@ -100,7 +100,7 @@ nav a:hover {
 .search-bar input {
   border: 1px solid #ced4da;
   border-radius: 0.4rem;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.5rem;
 }
 
 .form-container {
@@ -120,7 +120,38 @@ nav a:hover {
 }
 
 .results-container {
-  margin: 0 auto;
+  position: relative;
   width: 80%;
+  margin: 0 auto;
+}
+
+.result-anchor {
+  text-decoration: none;
+  color: $font-secondary-color;
+}
+
+.animal-item {
+  display: none;
+  background-color: $info-color;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.tags {
+  color: $font-primary-color;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.map-wrapper {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+#mapContainer {
+  width: 80%;
+  height: 300px;
+  margin: 0 auto;
 }
 
