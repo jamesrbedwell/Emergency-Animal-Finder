@@ -1,10 +1,31 @@
+/* COLORS */
+$primary-color: #78C2AD;
+$secondary-color: #F3969A;
+$success-color: #56CC9D;
+$info-color: #6CC3D5;
+$warning-color: #FFCE67;
+$danger-color: #FF7851;
+$primary-font-color: #888;
+$secondary-font-color: #FFF;
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: rgb(228, 228, 228);
+  margin: 0;
+  background-color: $secondary-font-color;
   font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+  width: 100%;
+  background-color: $primary-color; 
+  height: 50px; 
+}
+
+nav a {
+  text-decoration: none;
 }
 
 .page-title {
