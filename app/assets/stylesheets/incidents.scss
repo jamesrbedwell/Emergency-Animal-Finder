@@ -1,13 +1,38 @@
 // Place all the styles related to the incidents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.incident {
-  font-size: 2rem;
-  border-radius: 8px;
-  display: block;
-  margin: auto;
+@import 'main';
+
+.incident-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  align-items: center;
 }
 
-h1 {
+.incident-container a {
+  width: 80%;
+  margin: 10px;
+  padding: 20px 0; 
+  border-radius: 20px;
+  background-color: $warning-color;
+  font-family: $raleway;
   text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 3px 3px 10px $font-primary-color;
+  opacity: 0.8;
+  transition: all ease-in-out 0.2s;
+}
+
+.incident-container a:hover {
+  transition: all ease-in-out 0.2s;
+  opacity: 1;
+}
+
+.incident-container a h4 {
+  margin: 0;
+  color: $font-primary-color;
 }

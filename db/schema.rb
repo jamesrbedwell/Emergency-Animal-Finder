@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_063816) do
+ActiveRecord::Schema.define(version: 2018_11_15_025645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_063816) do
     t.date "date_found"
     t.string "location_found"
     t.string "location_current"
-    t.text "image_url"
+    t.text "image"
     t.string "health_status"
     t.bigint "incident_id"
     t.bigint "user_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_063816) do
     t.datetime "updated_at", null: false
     t.string "lat"
     t.string "long"
-    t.boolean "claim_status", default: true
+    t.boolean "reunited", default: false
     t.index ["incident_id"], name: "index_found_animals_on_incident_id"
     t.index ["user_id"], name: "index_found_animals_on_user_id"
   end
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 2018_11_14_063816) do
     t.text "tags", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "image_url"
+    t.text "image"
     t.string "lat"
     t.string "long"
-    t.boolean "claim_status", default: true
+    t.boolean "reunited", default: false
     t.index ["incident_id"], name: "index_lost_animals_on_incident_id"
     t.index ["user_id"], name: "index_lost_animals_on_user_id"
   end

@@ -2,6 +2,9 @@
 
 <div class="incident-container">
   <% @incidents.each do |incident| %>
-    <a href="/incidents/<%= incident.id %>"> <%= incident.name%> </a>
+    <a href="/incidents/<%= incident.id %>"> 
+      <h1><%= incident.name %></h1> 
+      <h4><%= incident.category.capitalize %> </h4>
+    </a>
   <% end %>
 </div>
