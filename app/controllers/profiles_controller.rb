@@ -4,5 +4,6 @@ class ProfilesController < ApplicationController
         @animals_lost = LostAnimal.where(user_id: session[:user_id])
         @animals_found = FoundAnimal.where(user_id: session[:user_id])
         render :show
+        binding.pry
     end
 end
