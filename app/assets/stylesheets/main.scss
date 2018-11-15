@@ -91,6 +91,18 @@ nav a:hover {
   color: $secondary-color;
 }
 
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  border: 1px solid #ced4da;
+  border-radius: 0.4rem;
+  padding: 0.25rem 1rem;
+}
+
 .form-container {
   width: 80%;
   margin: 0 auto;
@@ -105,5 +117,10 @@ nav a:hover {
   width: 90%;
   margin: 0 auto;
   padding: 5%;
+}
+
+.results-container {
+  margin: 0 auto;
+  width: 80%;
 }
 
