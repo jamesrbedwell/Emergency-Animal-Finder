@@ -26,8 +26,8 @@
   <input type="text" name="location_found" value="<%= @animal.location_found %>">
   <label for="">Current Location of Animal</label>
   <input type="text" name="location_current" value="<%= @animal.location_current %>">
-  <label for="">Link to Image of Animal</label>
-  <input type="url" name="image_url" value="<%= @animal.image_url %>">
+  <label for="">Image of Animal</label>
+  <input type="file" name="image">
   <label for="">Health Status</label>
   <select name="health_status" id="">
     <% @health_status.each do |status| %>
