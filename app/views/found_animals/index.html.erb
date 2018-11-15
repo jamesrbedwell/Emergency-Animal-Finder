@@ -1,8 +1,12 @@
+
 <h2 class="page-title">Found Animals</h2>
 <form action="" class="search-form">
   <input type="text" class="search-input">
   <button>Search</button>
 </form>
+
+<div id="mapContainer"></div>
+
 <% @found_animals.each do |animal| %>
   <a href="<%= found_animal_path(animal) %>">
     <div class="animal-item">

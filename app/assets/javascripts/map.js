@@ -1,4 +1,4 @@
-if (window.location.href.includes('found_animals')|| window.location.href.includes('lost_animals')) {
+if (window.location.pathname == 'found_animals'|| window.location.pathname == 'lost_animals') {
     const locations = [
         ["Geelong", -38.15, 144.36],
         ["Franston",-38.16, 145.14],
