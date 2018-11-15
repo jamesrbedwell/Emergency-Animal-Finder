@@ -1,6 +1,7 @@
 /* COLORS */
 $primary-color: #78C2AD;
 $secondary-color: #F3969A;
+$thirdary-color: #f7f7f9;
 $success-color: #56CC9D;
 $info-color: #6CC3D5;
 $warning-color: #FFCE67;
@@ -82,36 +83,27 @@ nav a:hover {
   font-size: 2.5rem;
 }
 
-.incident-container {
+.sub-title {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: $secondary-color;
+}
+
+.form-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: $thirdary-color;
+  border-radius: 20px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
-  align-items: center;
+  padding: 5%;
 }
 
-.incident-container a {
-  width: 80%;
-  margin: 10px;
-  padding: 20px 0; 
-  border-radius: 20px;
-  background-color: $warning-color;
-  font-family: $raleway;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  box-shadow: 3px 3px 10px $font-primary-color;
-  opacity: 0.8;
-  transition: all ease-in-out 0.2s;
-}
-
-.incident-container a:hover {
-  transition: all ease-in-out 0.2s;
-  opacity: 1;
-}
-
-.incident-container a h4 {
-  margin: 0;
-  color: $font-primary-color;
-}
