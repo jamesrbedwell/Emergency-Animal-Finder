@@ -27,7 +27,8 @@
     <% @current_user = User.find_by(id: session[:user_id])%>
     <%if @current_user%>
 
-      <p>logged in as <a href='profiles/<%@current_user.id%>'><%= @current_user.name %></p></a>
+        <%= link_to "#{@current_user.name}", "/profiles/#{@current_user.name}" %>
+
 
       <%= link_to "Log out", session_path, method: "delete" %>
 
