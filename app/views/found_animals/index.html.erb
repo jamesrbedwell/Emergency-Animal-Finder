@@ -11,6 +11,8 @@
   <div id="mapContainer"></div>
 </div>
 
+<div id="found-animal-data" data-animals="<%= @found_map_data.to_json %>"></div>
+
 <div class="results-container">
   <% @found_animals.each do |animal| %>
     <div class="animal-item" onclick="location.href='<%= found_animal_path(animal)%>'">
