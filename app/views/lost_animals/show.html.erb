@@ -1,8 +1,15 @@
 <h2 class="page-title">Lost Animal</h2>
-<h3><%= @animal.species.capitalize %></h3>
-<% if @animal.reunited === false %>
-  <h4> Animal hasn't been reunited yet</h4>
-<% end %>
-<h4><%= @animal.incident.name %></h4>
-<img src="<%= @animal.image.url %>" alt="">
-<h3><%= @animal.date_lost %></h3>
+
+<div class="show-container">
+  <div class="show-header">
+    <h3><%= @animal.species.capitalize %> lost during the <%= @animal.incident.name %> incident</h3>
+  </div>
+  <div class="show-content">
+    <% if @animal.reunited === false %>
+      <h4> Animal hasn't been reunited yet</h4>
+    <% end %>
+    <img src="<%= @animal.image.url %>" alt="">
+    <h3>Location lost <span><%= @animal.location_lost %></span></h3>
+    <h3>Date lost: <span><%= @animal.date_lost %></span></h3>
+  </div>
+</div>
