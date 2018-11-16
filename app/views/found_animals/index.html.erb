@@ -13,15 +13,17 @@
 
 <div class="results-container">
   <% @found_animals.each do |animal| %>
-    <div class="animal-item">
-      <p class="tags"><%= animal.tags.join(' ') %></p>
+    <div class="animal-item" onclick="location.href='<%= found_animal_path(animal)%>'">
+      <p class="tags"><%= animal.tags.join(' // ') %></p>
       <div class="item-header">
         <h3><%= animal.species.capitalize %> found in <%= animal.location_found %></h3>
       </div>
-      <img src="<%= animal.image %>" alt="Lost <%= animal.species %>">
-      <h4>Currently at: <%= animal.location_current %></h4>
-      <h4>Date Found: <%= animal.date_found %></h4>
-      <h4>Date Posted: <%= animal.created_at %></h4>
+      <div class="item-content">
+        <img src="<%= animal.image %>" alt="Lost <%= animal.species %>">
+        <h4>Currently at: <span><%= animal.location_current %></span></h4>
+        <h4>Date Found: <span><%= animal.date_found.strftime("%a, %d-%h-%G") %></span></h4>
+        <h4>Date Posted: <span><%= animal.created_at.strftime("%a, %d-%h-%G") %></span></h4>
+      </div>
     </div>
   <% end %>
 </div>

@@ -13,14 +13,16 @@
 
 <div class="results-container">
   <% @lost_animals.each do |animal| %>
-    <div class="animal-item">
+    <div class="animal-item" onclick="location.href='<%= lost_animal_path(animal)%>'">
       <p class="tags"><%= animal.tags.join(' ') %></p>
       <div class="item-header">
         <h3><%= animal.species.capitalize %> lost in <%= animal.location_lost %></h3>
       </div>
-      <img src="<%= animal.image.url %>" alt="Lost <%= animal.species %>">
-      <h4>Lost at: <%= animal.location_lost %></h4>
-      <h4>Date lost: <%= animal.date_lost %></h4>
+      <div class="item-content">
+        <img src="<%= animal.image %>" alt="Lost <%= animal.species %>">
+        <h4>Lost at: <span><%= animal.location_lost %></span></h4>
+        <h4>Date lost: <span><%= animal.date_lost.strftime("%a, %d-%h-%G") %></span></h4>
+      </div>
     </div>
   <% end %>
 </div>
