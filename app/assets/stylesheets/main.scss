@@ -140,7 +140,7 @@ nav a:hover {
 .form-container {
   width: 80%;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: $thirdary-color;
   border-radius: 20px;
 }
@@ -150,7 +150,7 @@ nav a:hover {
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  padding: 5%;
+  padding: 2%;
   align-items: center;
 }
 
@@ -274,3 +274,22 @@ nav a:hover {
   margin: 0 auto;
 }
 
+.show-container {
+  border: 1px solid rgba(0,0,0,0.3);
+  background-color: $secondary-color;
+  width: 80%;
+  border-radius: 10px;
+  margin: 20px auto;
+  color: $font-secondary-color;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px $font-primary-color;
+  transition: all ease-in-out 0.2s;
+}
+
+.show-header {
+
+}
+
+.show-content {
+  
+}
