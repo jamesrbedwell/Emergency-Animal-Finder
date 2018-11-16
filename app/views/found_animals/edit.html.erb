@@ -1,4 +1,4 @@
-<h2 class="page-title">Update the details for the Animal you have found</h2>
+<h2 class="page-title">Update the details for the animal you have found</h2>
 <%= form_tag found_animal_path(@animal), method: :put do %>
   <label for="">Incident</label>
   <select name="incident_id" id="">
@@ -40,15 +40,13 @@
   </select>
   <label for="">Please enter single word tags</label>
   <textarea name="tags" value="tags"><%= @animal.tags.join(' ') %></textarea>
-  <label for="">Claim Status</label>
-  <select name="claim_status" id="">
-    <% @claim_status.each do |status| %>
-      <% if @animal.claim_status === status %>
-        <option value="<%= status %>" selected><%= status.capitalize %></option>
-      <% else %>
-        <option value="<%= status %>"><%= status.capitalize %></option>
-        <% end %>
-      <% end  %>
-    </select>
+  <label for="">Reunited?</label>
+  <select name="reunited" id="">
+    <% if @animal.reunited === false %>
+      <option value="false" selected>No</option>
+    <% else %>
+      <option value="true">Yes</option>
+    <% end %>
+  </select>
   <button>Edit Animal</button>
 <% end %>
