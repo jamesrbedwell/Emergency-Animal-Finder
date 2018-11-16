@@ -1,13 +1,17 @@
- <%= form_tag "/session", method: "create" do %>
-    <h2 class="page-title">Please Login</h2>
-    <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
-    <label for=''>Email</label>
-    <input type='email' name='email'>
-    <label for=''>Password</label>
-    <input type='password' name='password'>
-    <button>Login</button>
- <% end %>
+<h2 class="page-title">Please Login</h2>
+<div class="form-container">
+   <%= form_tag "/session", method: "create" do %>
+      <div class="form">
+         <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+         <label for=''>Email</label>
+         <input type='email' name='email'>
+         <label for=''>Password</label>
+         <input type='password' name='password'>
+         <button>Login</button>
+      </div>
+   <% end %>
+   <p> New user? <a href='/users/new' class="link-btn"> Sign Up </a> </p>
+</div>
 
-<p> New user ? </p>
-<a href='/users/new'> Sign Up </a>
+
 

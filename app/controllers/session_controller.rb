@@ -8,7 +8,7 @@ class SessionController < ApplicationController
         @current_user = User.find_by(email: params[:email])
         if @current_user && @current_user.authenticate(params[:password])
                 session[:user_id] = @current_user.id
-                redirect_to "/profiles/#{@current_user.id}"
+                redirect_to "/users/#{@current_user.id}"
         else
             redirect_to("/login")
         end

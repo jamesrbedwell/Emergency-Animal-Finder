@@ -1,11 +1,15 @@
 <h2 class="page-title">Sign Up Below</h2>
-<form action='/users' method='post'>
-<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
-<label for=''>Name</label>
-<input value='' name='name'>
-<label for=''>Email</label>
-<input type='email' name='email'>
-<label for=''>Password</label>
-<input type='password' name='password'>
-<button>Sign Up</button>
-</form>
+<div class="form-container">
+  <form action='/users' method='post'>
+    <div class="form">
+      <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
+      <label for=''>Name</label>
+      <input value='' name='name'>
+      <label for=''>Email</label>
+      <input type='email' name='email'>
+      <label for=''>Password</label>
+      <input type='password' name='password'>
+      <button>Sign Up</button>
+    </div>
+  </form>
+</div>
