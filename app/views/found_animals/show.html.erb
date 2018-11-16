@@ -12,7 +12,11 @@
 <p><%= @animal.health_status %></p>
 <%# <p>Is this animal yours?</p> %>
 <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
+
+
+<%if @animal.user.id == session[:user_id]%>
 <a href="<%= edit_found_animal_path(@animal) %>">Edit Animal</a>
+<%end%>
 <%# <% if %>
 <%# if statement that shows an edit button if animal belongs to users %>
 <%# else %>

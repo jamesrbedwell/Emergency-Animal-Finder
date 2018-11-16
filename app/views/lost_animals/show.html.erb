@@ -6,4 +6,11 @@
 <h4><%= @animal.incident.name %></h4>
 <img src="<%= @animal.image.url %>" alt="">
 <h3><%= @animal.date_lost %></h3>
-
+<%# <% if %>
+<%# if statement that shows an edit button if animal belongs to users %>
+<%# else %>
+<%# shows a contact user button %>
+<%# end %>
+<%if @animal.user.id == session[:user_id]%>
+<a href="<%= edit_lost_animal_path(@animal) %>">Edit Animal</a>
+<%end%>
