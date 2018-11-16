@@ -4,6 +4,11 @@ class LostAnimalsController < ApplicationController
       @lost_animals = LostAnimal.where("incident_id = ?", params[:incident].to_i)
     else
       @lost_animals = LostAnimal.all
+      @lost_map_data = {
+        lat: @lost_animals.pluck(:lat), 
+        long: @lost_animals.pluck(:long), 
+        location: @lost_animals.pluck(:location_lost)
+      }
     end
   end
   
@@ -23,6 +28,11 @@ class LostAnimalsController < ApplicationController
     animal.species = params[:species]
     animal.date_lost = params[:date_lost]
     animal.location_lost = params[:location_lost]
+    animal.lat = Geocoder.coordinates(animal.location_lost).first
+    animal.long = Geocoder.coordinates(animal.location_lost).last
+    gon.lost_location = animal.location_lost
+    gon.lost_lat = animal.lat
+    gon.lost_long = animal.long
     animal.image = params[:image]
     animal.incident_id = params[:incident_id]
     animal.user_id = 1 #should be session user id
@@ -64,6 +74,9 @@ class LostAnimalsController < ApplicationController
     animal.species = params[:species]
     animal.date_lost = params[:date_lost]
     animal.image = params[:image]
+    animal.location_lost = params[:location_lost]
+    animal.lat = Geocoder.coordinates(animal.location_lost).first
+    animal.long = Geocoder.coordinates(animal.location_lost).last
     animal.incident_id = params[:incident_id]
     animal.tags = params[:tags].split(' ')
     animal.tags.unshift(animal.species)

@@ -6,6 +6,8 @@
 
 <div id="mapContainer"></div>
 
+<div id="lost-animal-data" data-animals="<%= @lost_map_data.to_json %>"></div>
+
 <% @lost_animals.each do |animal| %>
   <a href="<%= lost_animal_path(animal) %>">
     <div class="animal-item">

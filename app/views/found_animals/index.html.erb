@@ -1,4 +1,3 @@
-
 <h2 class="page-title">Found Animals</h2>
 <form action="" class="search-form">
   <input type="text" class="search-input">
@@ -6,6 +5,8 @@
 </form>
 
 <div id="mapContainer"></div>
+
+<div id="found-animal-data" data-animals="<%= @found_map_data.to_json %>"></div>
 
 <% @found_animals.each do |animal| %>
   <a href="<%= found_animal_path(animal) %>">
