@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
 
-
-   
-
     def new
         render :new
     end
 
-    
     def create
         user = User.new
         user.name = params[:name]
@@ -25,6 +21,9 @@ class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
         
+        @current_user = User.find_by(id: session[:user_id])
+        @animals_lost = LostAnimal.where(user_id: session[:user_id])
+        @animals_found = FoundAnimal.where(user_id: session[:user_id])
         render :show
     end
 
