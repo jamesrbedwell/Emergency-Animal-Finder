@@ -4,6 +4,11 @@ class FoundAnimalsController < ApplicationController
       @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
     else
       @found_animals = FoundAnimal.all
+      @found_map_data = {
+        lat: @found_animals.pluck(:lat), 
+        long: @found_animals.pluck(:long), 
+        location: @found_animals.pluck(:location_current)
+      }
     end
   end
 
@@ -59,6 +64,8 @@ class FoundAnimalsController < ApplicationController
     animal.date_found = params[:date_found]
     animal.location_found = params[:location_found]
     animal.location_current = params[:location_current]
+    animal.lat = Geocoder.coordinates(animal.location_current).first
+    animal.long = Geocoder.coordinates(animal.location_current).last
     animal.image = params[:image]
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
@@ -67,7 +74,7 @@ class FoundAnimalsController < ApplicationController
     animal.tags.unshift(animal.health_status)
     animal.tags.unshift(animal.location_found)
     animal.tags = animal.tags.uniq
-    animal_tags.map! do |tag|
+    animal.tags.map! do |tag|
       tag.downcase
     end
     animal.reunited = params[:reunited]
