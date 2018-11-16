@@ -11,6 +11,7 @@
 <%# else %>
 <%# shows a contact user button %>
 <%# end %>
+<%= link_to "#{@animal.user.name}", "/users/#{@animal.user.id}" %>
 <%if @animal.user.id == session[:user_id]%>
 <a href="<%= edit_lost_animal_path(@animal) %>">Edit Animal</a>
 <%end%>
