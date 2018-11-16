@@ -5,6 +5,7 @@
     <a href="/incidents/<%= incident.id %>"> 
       <h1><%= incident.name %></h1> 
       <h4><%= incident.category.capitalize %> </h4>
+      <h3>Lost Animals: <%= incident.lost_animals.count %> Found Animals <%= incident.found_animals.count %></h3>
     </a>
   <% end %>
 </div>

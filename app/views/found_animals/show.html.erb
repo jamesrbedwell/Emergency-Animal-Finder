@@ -1,6 +1,8 @@
 <h2 class="page-title">Found Animal</h2>
 <h3><%= @animal.species.capitalize %></h3>
-<h4><%= @animal.claim_status %></h4>
+<% if @animal.reunited === false %>
+  <h4> Animal hasn't been reunited yet</h4>
+<% end %>
 <h4><%= @animal.incident.name %></h4>
 <img src="<%= @animal.image.url %>" alt="">
 <h3><%= @animal.date_found %></h3>
