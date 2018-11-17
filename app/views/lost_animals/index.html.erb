@@ -1,23 +1,30 @@
 <h2 class="page-title">Lost Animals</h2>
-<form action="" class="search-form">
-  <input type="text" class="search-input">
-  <button>Search</button>
-</form>
 
-<div id="mapContainer"></div>
+<div class="search-bar">
+  <form action="" class="search-form">
+    <input type="text" class="search-input">
+    <button>Search</button>
+  </form>
+</div>
+
+<div class="map-wrapper">
+  <div id="mapContainer"></div>
+</div>
 
 <div id="lost-animal-data" data-animals="<%= @lost_map_data.to_json %>"></div>
 
-<% @lost_animals.each do |animal| %>
-  <a href="<%= lost_animal_path(animal) %>">
-    <div class="animal-item">
-      <h5 class="tags"><%= animal.tags.join(' ') %></h5>
-      <img src="<%= animal.image.url %>" alt="Lost <%= animal.species %>">
-      <h3><%= animal.species %></h3>
-      <h4>Lost at: <%= animal.location_lost %></h4>
-      <h4>Date lost: <%= animal.date_lost %></h4>
-      <span class="lost_lat"><%= animal.lat %></span>
-      <span class="lost_long"><%= animal.long %></span>
+<div class="results-container">
+  <% @lost_animals.each do |animal| %>
+    <div class="animal-item" onclick="location.href='<%= lost_animal_path(animal)%>'">
+      <p class="tags"><%= animal.tags.join(' ') %></p>
+      <div class="item-header">
+        <h3><%= animal.species.capitalize %> lost in <%= animal.location_lost %></h3>
+      </div>
+      <div class="item-content">
+        <img src="<%= animal.image %>" alt="Lost <%= animal.species %>">
+        <h4>Lost at: <span><%= animal.location_lost %></span></h4>
+        <h4>Date lost: <span><%= animal.date_lost.strftime("%a, %d-%h-%G") %></span></h4>
+      </div>
     </div>
-  </a>
-<% end %>
+  <% end %>
+</div>
