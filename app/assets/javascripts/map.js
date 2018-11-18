@@ -1,8 +1,12 @@
-const USER_LOCATION = {
-    user: {
-        position: null
-    }
+const userLocation = {
+    position: null
 }
+
+$.ajax({
+    url : "/customurl",
+    type : "post",
+    data : { data_value: JSON.stringify(userLocation.position) }
+});
 
 const GEO_OPTIONS = {
     enableHighAccuracy: true, 
@@ -10,15 +14,14 @@ const GEO_OPTIONS = {
     timeout           : 27000
 };
 
-
 const getLocation = (options = {}) => {
     navigator.geolocation.watchPosition(
         (position) => {
-            USER_LOCATION.user.position = {
+            userLocation.position = {
                 lat: position.coords.latitude, 
                 long: position.coords.longitude
             }
-            console.log(USER_LOCATION.user.position);
+            //console.log('user', userLocation.position.lat);
         }, 
         () => alert("Sorry, no position available."), 
         {
@@ -28,10 +31,8 @@ const getLocation = (options = {}) => {
     );
 }
   
-const pinPointsOnMap = (locations, foundData) => {
-    // let map = L.map('mapContainer').setView([-37.81, 144.96], 8);
-    console.log('map object', L.map('mapContainer'));
-
+const pinPointsOnMap = locations => {
+    let map = L.map('mapContainer').setView([-37.81, 144.96], 8);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -42,29 +43,33 @@ const pinPointsOnMap = (locations, foundData) => {
             .bindPopup(location[0])
             .addTo(map);
     }) 
-    // zoom dynamic
     console.log('locations', locations)
-    const group = new L.featureGroup();
+    //const group = new L.featureGroup();
     const latLongPoints = location => location.slice(1);
     const boundingBox = L.latLngBounds(locations.map(latLongPoints));
     map.fitBounds(boundingBox);
-    //map.fitBounds(group.getBounds([[Math.max(...foundData.lat), Math.max(...foundData.long)],[Math.min(...foundData.lat), Math.min(...foundData.long)]]));
-    console.log(group)
+}
 
+const getData = url => {
+    fetch(url)
+        .then(res => res.json)
+        .then(json => console.log(json[data]))
 }
 
 if (/\/found_animals\/?$/.test(window.location.pathname)) {
     const foundLocations = [];
+    
     let foundData = document.querySelector('#found-animal-data').dataset.animals;
     foundData = JSON.parse(foundData);
-    console.log(foundData)
+    //foundData = getData('/api/found_animals')
+    console.log('foundData', foundData)
 
     for(let i = 0; i < foundData.location.length; i++) {
         foundLocations.push([foundData.location[i], foundData.lat[i], foundData.long[i]]);
     }
 
     console.log(foundLocations)
-    pinPointsOnMap(foundLocations, foundData);
+    pinPointsOnMap(foundLocations);
     getLocation();
 
 }
@@ -78,7 +83,6 @@ if (/\/lost_animals\/?$/.test(window.location.pathname)) {
     for(let i = 0; i < lostData.location.length; i++) {
         lostLocations.push([lostData.location[i], lostData.lat[i], lostData.long[i]]);
     }
-
     //console.log(lostLocations)
     pinPointsOnMap(lostLocations);
     getLocation();

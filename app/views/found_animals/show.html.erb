@@ -8,7 +8,7 @@
 <h3><%= @animal.date_found %></h3>
 <h3><%= @animal.location_found %></h3>
 <h3><%#= @animal.date_posted %></h3>
-<h3><%= @animal.location_current %></h3>
+<h3><%= @animal.location_current %> is <%= @animal.distance_from([userLocation.position.lat, userLocation.position.long]) %> from you.</h3>
 <p><%= @animal.health_status %></p>
 <%# <p>Is this animal yours?</p> %>
 <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
@@ -18,3 +18,6 @@
 <%# else %>
 <%# shows a contact user button %>
 <%# end %>
+
+<script>
+</script>

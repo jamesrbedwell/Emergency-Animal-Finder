@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   post 'session', to: 'session#create'
   delete 'session', to: 'session#destroy'
 
-  
+  namespace 'api' do
+    resources :found_animals
+    resources :lost_animals
+  end 
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
