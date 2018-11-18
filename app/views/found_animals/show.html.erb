@@ -1,4 +1,3 @@
-<h2 class="page-title">Found Animal</h2>
 <div class="show-container">
   <div class="show-header">
     <h3><%= @animal.species.capitalize %> found during the <%= @animal.incident.name %> incident</h3>
@@ -12,10 +11,14 @@
     <h3>Location Found: <span><%= @animal.location_found %></span></h3>
     <h3><%#= @animal.date_posted %></h3>
     <h3>Current Location: <span><%= @animal.location_current %></span></h3>
+    <h3><%= @animal %> is <%= @animal.distance_from([userLocation.position.lat, userLocation.position.long]) %> from you.</h3>
     <p>Health Status: <span><%= @animal.health_status.capitalize %></span></p>
     <%# <p>Is this animal yours?</p> %>
     <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
+    <%= link_to "#{@animal.user.name}", "/users/profile/#{@animal.user.id}" %>
+    <%if @animal.user.id == session[:user_id]%>
     <a href="<%= edit_found_animal_path(@animal) %>">Edit Animal</a>
+    <%end%>
     <%# <% if %>
     <%# if statement that shows an edit button if animal belongs to users %>
     <%# else %>
