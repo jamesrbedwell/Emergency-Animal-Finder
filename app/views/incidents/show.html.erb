@@ -2,12 +2,12 @@
 
 <div class="incident-container">
   <a href="/lost_animals?incident=<%= @incident.id %>">
-    <h1>Lost an animal</h1>
-    <h3>Current Number Lost: <%= @incident.lost_animals.count %></h3>
+    <h1>Lost animals</h1>
+    <h3>Current Number Lost: <span><%= @incident.lost_animals.count %></span></h3>
   </a>
 
   <a href="/found_animals?incident=<%= @incident.id %>">
-    <h1>Found an animal</h1>
-    <h3>Current Number Found: <%= @incident.found_animals.count %></h3>
+    <h1>Found animals</h1>
+    <h3>Current Number Found: <span><%= @incident.found_animals.count %></span></h3>
   </a>
 </div>
