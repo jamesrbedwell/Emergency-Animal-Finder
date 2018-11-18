@@ -25,12 +25,11 @@
         <% end  %>
       </select>
       <label for="">Date Animal was lost</label>
-      <input type="date" name="date_lost" value="<%= @animal.date_lost %>">
+      <input type="date" name="date_lost" value="<%= @animal.date_lost %>" class="datefield" required>
       <label for="">Location of the Animal lost</label>
-      <input type="text" name="location_lost" value="<%= @animal.location_lost %>">
+      <input type="text" name="location_lost" value="<%= @animal.location_lost %>" required>
       <label for="">Image of Animal</label>
       <input type="file" name="image">
-
       <label for="">Please enter single word tags</label>
         <textarea name="tags" value="tags"><%= @animal.tags.join(' ') %></textarea>
       <label for="">Reunited?</label>
