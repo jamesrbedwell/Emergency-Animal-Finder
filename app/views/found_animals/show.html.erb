@@ -15,6 +15,7 @@
     <p>Health Status: <span><%= @animal.health_status %></span></p>
     <%# <p>Is this animal yours?</p> %>
     <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
+    <%= link_to "#{@animal.user.name}", "/users/profile/#{@animal.user.id}" %>
     <%if @animal.user.id == session[:user_id]%>
     <a href="<%= edit_found_animal_path(@animal) %>">Edit Animal</a>
     <%end%>
