@@ -1,4 +1,3 @@
-<h2 class="page-title">Found Animal</h2>
 <div class="show-container">
   <div class="show-header">
     <h3><%= @animal.species.capitalize %> found during the <%= @animal.incident.name %> incident</h3>
@@ -12,6 +11,7 @@
     <h3>Location Found: <span><%= @animal.location_found %></span></h3>
     <h3><%#= @animal.date_posted %></h3>
     <h3>Current Location: <span><%= @animal.location_current %></span></h3>
+    <h3><%= @animal %> is <%= @animal.distance_from([userLocation.position.lat, userLocation.position.long]) %> from you.</h3>
     <p>Health Status: <span><%= @animal.health_status %></span></p>
     <%# <p>Is this animal yours?</p> %>
     <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>

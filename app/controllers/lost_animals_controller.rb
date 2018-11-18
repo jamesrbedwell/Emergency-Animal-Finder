@@ -2,6 +2,11 @@ class LostAnimalsController < ApplicationController
   def index
     if params[:incident]
       @lost_animals = LostAnimal.where("incident_id = ?", params[:incident].to_i)
+      @found_map_data = {
+        lat: @found_animals.pluck(:lat), 
+        long: @found_animals.pluck(:long), 
+        location: @found_animals.pluck(:location_current),
+      }
     else
       @lost_animals = LostAnimal.all
       @lost_map_data = {
@@ -30,9 +35,6 @@ class LostAnimalsController < ApplicationController
     animal.location_lost = params[:location_lost]
     animal.lat = Geocoder.coordinates(animal.location_lost).first
     animal.long = Geocoder.coordinates(animal.location_lost).last
-    gon.lost_location = animal.location_lost
-    gon.lost_lat = animal.lat
-    gon.lost_long = animal.long
     animal.image = params[:image]
     animal.incident_id = params[:incident_id]
     animal.user_id = 1 #should be session user id

@@ -2,6 +2,11 @@ class FoundAnimalsController < ApplicationController
   def index
     if params[:incident]
       @found_animals = FoundAnimal.where("incident_id = ?", params[:incident].to_i)
+      @found_map_data = {
+        lat: @found_animals.pluck(:lat), 
+        long: @found_animals.pluck(:long), 
+        location: @found_animals.pluck(:location_current)
+      }
     else
       @found_animals = FoundAnimal.all
       @found_map_data = {
@@ -31,6 +36,7 @@ class FoundAnimalsController < ApplicationController
     animal.location_current = params[:location_current]
     animal.lat = Geocoder.coordinates(animal.location_current).first
     animal.long = Geocoder.coordinates(animal.location_current).last
+
     animal.image = params[:image]
     animal.health_status = params[:health_status]
     animal.incident_id = params[:incident_id]
