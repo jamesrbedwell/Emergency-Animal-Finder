@@ -17,9 +17,6 @@ class LostAnimalsController < ApplicationController
     end
   end
   
-  def show
-    @animal = LostAnimal.find(params[:id])
-  end
 
   def new
     @incidents = Incident.all
@@ -29,6 +26,7 @@ class LostAnimalsController < ApplicationController
   end
 
   def create
+    @user = User.find_by(id: session[:user_id])
     animal = LostAnimal.new
     animal.species = params[:species]
     animal.date_lost = params[:date_lost]
@@ -37,7 +35,7 @@ class LostAnimalsController < ApplicationController
     animal.long = Geocoder.coordinates(animal.location_lost).last
     animal.image = params[:image]
     animal.incident_id = params[:incident_id]
-    animal.user_id = 1 #should be session user id
+    animal.user_id = @user.id
     animal.tags = params[:tags].split(' ')
     animal.tags.unshift(animal.species)
     animal.tags.unshift(animal.location_lost)
@@ -53,13 +51,6 @@ class LostAnimalsController < ApplicationController
     end
   end
   
-    def edit
-      @animal = LostAnimal.find(params[:id])
-      @incidents = Incident.all
-      @animal_species = Animal::SPECIES
-      @claim_status = Animal::CLAIM
-    end
-
 
   def show
     @animal = LostAnimal.find(params[:id])
