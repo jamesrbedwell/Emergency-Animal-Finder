@@ -24,11 +24,11 @@
         <% end  %>
       </select>
       <label for="">Date Animal was Found</label>
-      <input type="date" name="date_found" value="<%= @animal.date_found %>">
+      <input type="date" name="date_found" value="<%= @animal.date_found %>" class="datefield" required>
       <label for="">Location Animal was Found</label>
-      <input type="text" name="location_found" value="<%= @animal.location_found %>">
+      <input type="text" name="location_found" value="<%= @animal.location_found %>" required>
       <label for="">Current Location of Animal</label>
-      <input type="text" name="location_current" value="<%= @animal.location_current %>">
+      <input type="text" name="location_current" value="<%= @animal.location_current %>" required>
       <label for="">Image of Animal</label>
       <input type="file" name="image">
       <label for="">Health Status</label>
