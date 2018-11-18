@@ -14,7 +14,7 @@
 .incident-container a {
   width: 80%;
   margin: 10px;
-  padding: 20px 0; 
+  padding: 10px 0; 
   border-radius: 20px;
   background-color: $warning-color;
   font-family: $raleway;
@@ -35,4 +35,26 @@
 .incident-container a h4 {
   margin: 0;
   color: $font-primary-color;
+}
+
+.incident-container a h3 {
+  color: $font-secondary-color;
+}
+
+
+.incident-container a h3 span {
+  color: $info-color;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .incident-container {
+    width: 100%;
+  }
+
+  .incident-container a {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
 }
