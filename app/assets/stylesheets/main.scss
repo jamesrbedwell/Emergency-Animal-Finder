@@ -140,7 +140,7 @@ nav a:hover {
 .form-container {
   width: 80%;
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 10px;
   background-color: $thirdary-color;
   border-radius: 20px;
 }
@@ -150,7 +150,7 @@ nav a:hover {
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  padding: 5%;
+  padding: 2%;
   align-items: center;
 }
 
@@ -274,3 +274,63 @@ nav a:hover {
   margin: 0 auto;
 }
 
+.show-container {
+  border: 1px solid rgba(0,0,0,0.3);
+  background-color: $secondary-color;
+  width: 80%;
+  border-radius: 10px;
+  margin: 20px auto;
+  color: $font-secondary-color;
+  transition: all ease-in-out 0.2s;
+}
+
+.show-header {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.1)
+}
+
+.show-header h3 {
+  margin: 0;  
+  padding: 5px 0;
+  text-align: center;
+  color: $font-secondary-color;
+  letter-spacing: 0.2rem;
+  font-weight: 200;
+}
+
+.show-content {
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+.show-content span {
+  font-weight: 200;
+}
+
+.link-btn {
+  background-color: $secondary-color;
+  border: 1px solid $secondary-color;
+  font-size: 0.8rem;
+  color: $font-secondary-color;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.3rem;
+  opacity: 0.8;
+  transition: all ease-in-out 0.2s;
+  width: 20%;
+  text-decoration: none;
+}
+
+.user-details {
+  text-align: right;
+  margin: 5px;
+}
+
+.show-animals {
+  width: 60%;
+  margin: 0 auto;
+  text-align: left;  
+}
+
+.show-animals p {
+  margin: 0;
+}

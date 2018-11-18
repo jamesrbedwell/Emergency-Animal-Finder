@@ -24,6 +24,8 @@ gem 'geocoder'
 gem 'pry-rails'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+gem "fog-aws"
+gem "figaro"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
