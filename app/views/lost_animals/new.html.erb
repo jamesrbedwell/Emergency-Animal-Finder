@@ -4,21 +4,21 @@
 <div class="form-container">
   <%= form_tag lost_animals_path, enctype: 'multipart/form-data', method: :post do %>
     <div class="form">
-      <label for="">Incident</label>
+      <label for="">Incident<span>*</span></label>
       <select name="incident_id" id="">
         <% @incidents.each do |incident| %>
           <option value="<%= incident.id %>"><%= incident.name %></option>
         <% end %>
       </select>
-      <label for="">Species</label>
+      <label for="">Species<span>*</span></label>
       <select name="species" id="">
         <% @species.each do |species| %>
           <option value="<%= species %>"><%= species.capitalize() %></option>
         <% end %>
       </select>
-      <label for="">Date Animal was lost</label>
+      <label for="">Date Animal was lost<span>*</span></label>
       <input type="date" class="datefield" name="date_lost" required>
-      <label for="">Location Animal was lost (please include the city)</label>
+      <label for="">Location Animal was lost (please include the city)<span>*</span></label>
       <input type="text" name="location_lost" required>
       <label for="">Please upload image of animal</label>
       <%= file_field :post, :image %>
