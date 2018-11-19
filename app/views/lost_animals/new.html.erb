@@ -2,7 +2,7 @@
 <h5 class="sub-title">Please enter the animals details below.</h5>
 
 <div class="form-container">
-  <%= form_tag lost_animals_path, enctype: 'multipart/form-data', method: :post do %>
+  <%= form_tag lost_animals_path, multipart: true, method: :post do %>
     <div class="form">
       <label for="">Incident<span>*</span></label>
       <select name="incident_id" id="">
