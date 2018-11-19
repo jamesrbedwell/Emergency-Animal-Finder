@@ -13,7 +13,7 @@
     <h3>Current Location: <span><%= @animal.location_current %></span></h3>
     <p class="lat"><%= @animal.lat %></p>
     <p class="long"><%= @animal.long %></p>
-    <h3 id="user_location">You are ___ away from ____</h3>
+    <h3 id="user_location"></h3>
     <p>Health Status: <span><%= @animal.health_status.capitalize %></span></p>
     <%# <p>Is this animal yours?</p> %>
     <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
