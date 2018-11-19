@@ -2,14 +2,18 @@ class IncidentsController < ApplicationController
 
   def index
     @incidents = Incident.all
-    @current_user = User.find_by(id: session[:user_id])
+    if session[:user_id]
+      @current_user = User.find_by(id: session[:user_id])
+    else
+      render :index
+    end
   end
 
   def show
     @incident = Incident.find(params[:id])
   end
   
-
+ 
   def destroy
     incident = Incident.find_by(id: params[:id])
     if incident.destroy
