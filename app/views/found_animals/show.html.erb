@@ -9,25 +9,10 @@
     <img src="<%= @animal.image.url %>" alt="">
     <h3>Date Found: <span><%= @animal.date_found %></span></h3>
     <h3>Location Found: <span><%= @animal.location_found %></span></h3>
-    <h3><%#= @animal.date_posted %></h3>
     <h3>Current Location: <span><%= @animal.location_current %></span></h3>
     <p class="lat"><%= @animal.lat %></p>
     <p class="long"><%= @animal.long %></p>
     <h3 id="user_location"></h3>
-    <p>Health Status: <span><%= @animal.health_status.capitalize %></span></p>
-    <%# <p>Is this animal yours?</p> %>
-    <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
-    <%= link_to "#{@animal.user.name}", "/users/profile/#{@animal.user.id}" %>
-    <%if @animal.user.id == session[:user_id]%>
-    <a href="<%= edit_found_animal_path(@animal) %>">Edit Animal</a>
-    <%end%>
-    
-    <%# <% if %>
-    <%# if statement that shows an edit button if animal belongs to users %>
-    <%# else %>
-    <%# shows a contact user button %>
-    <%# end %>
-
     <h3>Health Status: <span><%= @animal.health_status.capitalize %></span></h3>
     <%= link_to "Contact: #{@animal.user.name}", "/users/profile/#{@animal.user.id}", class: 'link-btn show' %>
     <% if @animal.user.id == session[:user_id] %>

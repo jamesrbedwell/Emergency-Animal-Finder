@@ -1,4 +1,4 @@
-if (window.location.href.includes('/lost_animals') || window.location.href.includes('/found_animals')) {
+if (window.location.href.includes('/lost_animals/new') || window.location.href.includes('/found_animals/new')) {
   let today = new Date();
   let dd = today.getDate();
   let mm = today.getMonth()+1;
