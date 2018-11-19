@@ -2,12 +2,6 @@ const userLocation = {
     position: null
 }
 
-$.ajax({
-    url : "/customurl",
-    type : "post",
-    data : { data_value: JSON.stringify(userLocation.position) }
-});
-
 const GEO_OPTIONS = {
     enableHighAccuracy: true, 
     maximumAge        : 30000, 
@@ -21,7 +15,12 @@ const getLocation = (options = {}) => {
                 lat: position.coords.latitude, 
                 long: position.coords.longitude
             }
-            //console.log('user', userLocation.position.lat);
+            $.ajax({
+                url : "/customurl",
+                type : "post",
+                data : { data_value: JSON.stringify(userLocation.position) }
+            });
+           //console.log('user', userLocation.position.lat);
         }, 
         () => alert("Sorry, no position available."), 
         {
@@ -30,7 +29,8 @@ const getLocation = (options = {}) => {
         }
     );
 }
-  
+    
+
 const pinPointsOnMap = locations => {
     let map = L.map('mapContainer').setView([-37.81, 144.96], 8);
     
