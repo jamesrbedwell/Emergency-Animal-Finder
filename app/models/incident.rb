@@ -1,5 +1,4 @@
 class Incident < ApplicationRecord
-    validates :name, :category presense: true
     has_many :lost_animals, dependent: :destroy
     has_many :found_animals, dependent: :destroy 
     has_many :users, through: :lost_animals
