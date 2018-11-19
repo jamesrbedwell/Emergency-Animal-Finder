@@ -2,13 +2,17 @@ class IncidentsController < ApplicationController
 
   def index
     @incidents = Incident.all
-    @current_user = User.find_by(id: session[:user_id])
+    if session[:user_id]
+      @current_user = User.find_by(id: session[:user_id])
+    else
+      render :index
+    end
   end
 
   def show
     @incident = Incident.find(params[:id])
   end
-
+  
   def create
     if User.find_by(id: session[:user_id]) == nil
       redirect_to '/login'

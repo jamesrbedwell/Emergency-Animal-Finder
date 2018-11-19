@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         user.password = params[:password]
         user.save
         if user.save
-            redirect_to '/'
+            redirect_to '/login'
         else
             render :new
         end
