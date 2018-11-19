@@ -1,0 +1,15 @@
+<h2 class="page-title">Add an Incident</h2>
+<h5 class="sub-title">Please enter the incident details below.</h5>
+
+<div class="form-container">
+  <%= form_tag incidents_path, enctype: 'multipart/form-data', method: :post do %>
+    <div class="form">
+      <label for="">Incident Name<span>*</span></label>
+      <input type="text" name="name" required>
+      <label for="">Category<span>*</span></label>
+      <input type="text" name="category" required>
+    
+      <button>Add Incident</button>
+    </div>
+  <% end %>
+</div>
