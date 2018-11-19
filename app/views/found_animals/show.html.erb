@@ -13,12 +13,6 @@
     <p class="lat"><%= @animal.lat %></p>
     <p class="long"><%= @animal.long %></p>
     <h3 id="user_location"></h3>
-    <p>Health Status: <span><%= @animal.health_status.capitalize %></span></p>
-    <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>
-    <%= link_to "#{@animal.user.name}", "/users/profile/#{@animal.user.id}" %>
-    <%if @animal.user.id == session[:user_id]%>
-    <a href="<%= edit_found_animal_path(@animal) %>">Edit Animal</a>
-    <%end%>
     <h3>Health Status: <span><%= @animal.health_status.capitalize %></span></h3>
     <%= link_to "Contact: #{@animal.user.name}", "/users/profile/#{@animal.user.id}", class: 'link-btn show' %>
     <% if @animal.user.id == session[:user_id] %>
