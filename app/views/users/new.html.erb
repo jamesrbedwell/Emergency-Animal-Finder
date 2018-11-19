@@ -2,7 +2,7 @@
 <div class="form-container">
   <form action='/users' method='post'>
     <div class="form">
-      <% if @user.errors %>
+      <% if @user && @user.errors %>
         <% @user.errors.full_messages.each do |error| %>
           <p class="errors"> - <%= error %></p>
         <% end %>
