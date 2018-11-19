@@ -394,6 +394,14 @@ input:valid {
   border: 1px solid $success-color;
 }
 
+.lat {
+  display: none;
+}
+
+.long {
+  display: none;
+}
+
 .img {
   width: 80%;
 }

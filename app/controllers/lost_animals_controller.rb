@@ -17,7 +17,6 @@ class LostAnimalsController < ApplicationController
     end
   end
   
-
   def new
     @incidents = Incident.all
     @health_status = Animal::HEALTH
