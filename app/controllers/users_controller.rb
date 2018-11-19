@@ -5,12 +5,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new
-        user.name = params[:name]
-        user.email = params[:email]
-        user.password = params[:password]
-        user.save
-        if user.save
+        @user = User.new
+        @user.name = params[:name]
+        @user.email = params[:email]
+        @user.password = params[:password]
+        @user.save
+        if @user.save
             redirect_to '/'
         else
             render :new
