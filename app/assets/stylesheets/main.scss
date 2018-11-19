@@ -394,8 +394,9 @@ input:valid {
   border: 1px solid $success-color;
 }
 
-.img {
-  width: 80%;
+img {
+  margin: 10px;
+  max-width: 80%;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
