@@ -29,30 +29,34 @@ class FoundAnimalsController < ApplicationController
   end
 
   def create
-    redirect_to '/login' unless logged_in?
-    animal = FoundAnimal.new
-    animal.species = params[:species]
-    animal.date_found = params[:date_found]
-    animal.location_found = params[:location_found]
-    animal.location_current = params[:location_current]
-    animal.lat = Geocoder.coordinates(animal.location_current).first
-    animal.long = Geocoder.coordinates(animal.location_current).last
+    if User.find_by(id: session[:user_id]) == nil
+      redirect_to '/login'
 
-    animal.image = params[:image]
-    animal.health_status = params[:health_status]
-    animal.incident_id = params[:incident_id]
-    animal.user_id = 1 #should be session user id
-    animal.tags = params[:tags].split(' ')
-    animal.tags.unshift(animal.species)
-    animal.tags.unshift(animal.health_status)
-    animal.tags.unshift(animal.location_found)
-    animal.tags = animal.tags.uniq
-    animal.tags.map! do |tag|
-      tag.downcase
+    else
+      @user = User.find_by(id: session[:user_id])
+      animal = FoundAnimal.new
+      animal.species = params[:species]
+      animal.date_found = params[:date_found]
+      animal.location_found = params[:location_found]
+      animal.location_current = params[:location_current]
+      animal.lat = Geocoder.coordinates(animal.location_current).first
+      animal.long = Geocoder.coordinates(animal.location_current).last
+      animal.image = params[:image]
+      animal.health_status = params[:health_status]
+      animal.incident_id = params[:incident_id]
+      animal.user_id = @user.id
+      animal.tags = params[:tags].split(' ')
+      animal.tags.unshift(animal.species)
+      animal.tags.unshift(animal.health_status)
+      animal.tags.unshift(animal.location_found)
+      animal.tags = animal.tags.uniq
+      animal.tags.map! do |tag|
+        tag.downcase
+      end
+      animal.reunited = false
+      animal.save
+      redirect_to(found_animal_path(animal.id))
     end
-    animal.reunited = false
-    animal.save
-    redirect_to(found_animal_path(animal.id))
   end
 
   def edit
