@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
     def new
         render :new
+        binding.pry
     end
 
     def create
