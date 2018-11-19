@@ -2,10 +2,10 @@ class LostAnimalsController < ApplicationController
   def index
     if params[:incident]
       @lost_animals = LostAnimal.where("incident_id = ?", params[:incident].to_i)
-      @found_map_data = {
-        lat: @found_animals.pluck(:lat), 
-        long: @found_animals.pluck(:long), 
-        location: @found_animals.pluck(:location_current),
+      @lost_map_data = {
+        lat: @lost_animals.pluck(:lat), 
+        long: @lost_animals.pluck(:long), 
+        location: @lost_animals.pluck(:location_current),
       }
     else
       @lost_animals = LostAnimal.all

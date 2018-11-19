@@ -3,7 +3,7 @@
     <h3><%= @animal.species.capitalize %> found during the <%= @animal.incident.name %> incident</h3>
   </div>
   <div class="show-content">
-      <% if @animal.reunited === false %>
+    <% if @animal.reunited === false %>
       <h4> Animal hasn't been reunited yet</h4>
     <% end %>
     <img src="<%= @animal.image.url %>" alt="">
@@ -11,7 +11,9 @@
     <h3>Location Found: <span><%= @animal.location_found %></span></h3>
     <h3><%#= @animal.date_posted %></h3>
     <h3>Current Location: <span><%= @animal.location_current %></span></h3>
-    <h3><%= @animal %> is <%= @animal.distance_from([userLocation.position.lat, userLocation.position.long]) %> from you.</h3>
+    <p class="lat"><% @animal.lat %></p>
+    <p class="long"><% @animal.long %></p>
+    <h3 id="user_location">You are ___ away from ____</h3>
     <p>Health Status: <span><%= @animal.health_status.capitalize %></span></p>
     <%# <p>Is this animal yours?</p> %>
     <a href="<%= user_path(@animal.user.id) %>">Is this animal yours?</a>

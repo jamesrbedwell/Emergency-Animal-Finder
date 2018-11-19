@@ -349,6 +349,14 @@ input:valid {
   border: 1px solid $success-color;
 }
 
+.lat {
+  display: none;
+}
+
+.long {
+  display: none;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
 
   nav {

@@ -10,6 +10,9 @@
     <% end %>
     <img src="<%= @animal.image.url %>" alt="">
     <h3>Location lost <span><%= @animal.location_lost %></span></h3>
+    <p class="lat"><% @animal.lat %></p>
+    <p class="long"><% @animal.long %></p>
+    <h3 id="user_location">You are ___ away from ____</h3>
     <h3>Date lost: <span><%= @animal.date_lost %></span></h3>
     <%= link_to "#{@animal.user.name}", "/users/profile/#{@animal.user.id}" %>
     <%if @animal.user.id == session[:user_id]%>
