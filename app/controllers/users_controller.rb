@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         user.password = params[:password]
         user.save
         if user.save
-            redirect_to '/'
+            redirect_to '/login'
         else
             render :new
         end
@@ -21,11 +21,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         @current_user = User.find_by(id: session[:user_id])
         @animals_lost = LostAnimal.where(user_id: session[:user_id])
-        animals_lost_lat = LostAnimal.where(user_id: session[:user_id]).lat
-        animals_lost_long = LostAnimal.where(user_id: session[:user_id]).long
         @animals_found = FoundAnimal.where(user_id: session[:user_id])
-        animals_found_lat = FoundAnimal.where(user_id: session[:user_id]).lat
-        animals_found_long = FoundAnimal.where(user_id: session[:user_id]).long
 
         render :show
     end

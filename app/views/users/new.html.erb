@@ -3,14 +3,17 @@
   <form action='/users' method='post'>
     <div class="form">
       <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
-      <label for=''>Name</label>
-      <input value='' name='name'>
-      <label for=''>Email</label>
-      <input type='email' name='email'>
-      <label for=''>Password</label>
-      <input type='password' name='password'>
-      <label for=''>Confirm Password</label>
-      <input type='password' name='confirmPassword'>
+      <label for=''>Name<span>*</span></label>
+      <input value='' name='name' required >
+      <label for=''>Email<span>*</span></label>
+      <input type='email' name='email' class="email" required >
+      <label for=''>Confirm Email<span>*</span></label>
+      <input type='email' class="confirm-email" required >
+      <label for=''>Password<span>*</span></label>
+      <input type='password' name='password' class="password" required>
+      <label for=''>Confirm Password<span>*</span></label>
+      <input type='password' class="confirm-password" required>
+      <p>* Required Fields</p>
       <button>Sign Up</button>
     </div>
   </form>

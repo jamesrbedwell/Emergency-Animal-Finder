@@ -2,10 +2,21 @@ const userLocation = {
     position: null
 }
 
-const lat = document.querySelector('.lat');
-const long = document.querySelector('.long');
+window.onload = () => {
+    const lat = document.querySelector('.lat').textContent;
+    const long = document.querySelector('.long').textContent;
+    console.log(lat, long)
+}
 
-// minus lat long from userLocation
+const calcDistance = (lat1, lon1, lat2, lon2) => {
+    var p = 0.017453292519943295; 
+    var c = Math.cos;
+    var a = 0.5 - c((lat2 - lat1) * p)/2 + 
+            c(lat1 * p) * c(lat2 * p) * 
+            (1 - c((lon2 - lon1) * p))/2;
+  
+    return 12742 * Math.asin(Math.sqrt(a));
+}
 
 const GEO_OPTIONS = {
     enableHighAccuracy: true, 
@@ -32,8 +43,16 @@ const getLocation = (options = {}, path) => {
             ...GEO_OPTIONS,
             ...options
         }
-        x.textContent = userLocation.position
+        // x.textContent = userLocation.position
     );
 }
 
- 
+if (/found_animals\/\d+?$/.test(window.location.pathname)) {
+    getLocation('found_animals')
+}
+
+
+if (/found_animals\/\d+?$/.test(window.location.pathname)) {
+    getLocation('lost_animals')
+
+}

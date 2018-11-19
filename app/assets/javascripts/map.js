@@ -37,8 +37,6 @@ if (/\/found_animals\/?$/.test(window.location.pathname)) {
 
     console.log(foundLocations)
     pinPointsOnMap(foundLocations);
-    getLocation();
-
 }
 
 if (/\/lost_animals\/?$/.test(window.location.pathname)) {
@@ -52,5 +50,4 @@ if (/\/lost_animals\/?$/.test(window.location.pathname)) {
     }
     //console.log(lostLocations)
     pinPointsOnMap(lostLocations);
-    getLocation();
 }

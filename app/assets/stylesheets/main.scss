@@ -57,6 +57,11 @@ nav a:hover {
   transition: all ease-in-out 0.3s;
 }
 
+.home-btn {
+  opacity: 1;
+  margin: 0;
+}
+
 .user-links {
   margin-left: auto;
 }
@@ -154,6 +159,15 @@ nav a:hover {
   align-items: center;
 }
 
+.form p {
+  margin: 0;
+  color: $danger-color;
+  font-size: 0.5rem;  
+  width: 80%;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
 .form input, .form select, .form textarea {
   margin: 0px 10px 10px 10px;
   padding: 0.25rem 0.5rem;
@@ -168,6 +182,10 @@ nav a:hover {
   color: #5a5a5a;
   font-size: 1.2rem;
   width: 80%;
+}
+
+.form span {
+  color: $danger-color;
 }
 
 .form input:focus, .form input:active, .form textarea:focus, .form select:focus {
@@ -301,10 +319,28 @@ nav a:hover {
 .show-content {
   letter-spacing: 0.1rem;
   text-align: center;
+  padding: 10px;
+}
+
+.profile {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.show-content p {
+  text-align: left;
 }
 
 .show-content span {
   font-weight: 200;
+}
+
+.show-content p span {
+  color: $font-primary-color;
+}
+
+.show-content p a {
+  color: $font-primary-color;
 }
 
 .link-btn {
@@ -318,6 +354,15 @@ nav a:hover {
   transition: all ease-in-out 0.2s;
   width: 20%;
   text-decoration: none;
+}
+
+.show {
+  background-color: $info-color;
+  border: none;
+}
+
+.show:hover {
+  opacity: 1;
 }
 
 .user-details {

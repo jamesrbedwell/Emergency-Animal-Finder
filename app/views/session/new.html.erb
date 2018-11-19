@@ -3,10 +3,10 @@
    <%= form_tag "/session", method: "create" do %>
       <div class="form">
          <input type='hidden' name='authenticity_token' value='<%=form_authenticity_token%>'>
-         <label for=''>Email</label>
-         <input type='email' name='email'>
-         <label for=''>Password</label>
-         <input type='password' name='password'>
+         <label for=''>Email<span>*</span></label>
+         <input type='email' name='email' required>
+         <label for=''>Password<span>*</span></label>
+         <input type='password' name='password' required>
          <button>Login</button>
       </div>
    <% end %>

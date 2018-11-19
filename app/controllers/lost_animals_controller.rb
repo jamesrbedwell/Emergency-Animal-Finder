@@ -5,7 +5,7 @@ class LostAnimalsController < ApplicationController
       @lost_map_data = {
         lat: @lost_animals.pluck(:lat), 
         long: @lost_animals.pluck(:long), 
-        location: @lost_animals.pluck(:location_current),
+        location: @lost_animals.pluck(:location_lost),
       }
     else
       @lost_animals = LostAnimal.all
@@ -17,7 +17,6 @@ class LostAnimalsController < ApplicationController
     end
   end
   
-
   def new
     @incidents = Incident.all
     @health_status = Animal::HEALTH
@@ -26,28 +25,29 @@ class LostAnimalsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: session[:user_id])
-    animal = LostAnimal.new
-    animal.species = params[:species]
-    animal.date_lost = params[:date_lost]
-    animal.location_lost = params[:location_lost]
-    animal.lat = Geocoder.coordinates(animal.location_lost).first
-    animal.long = Geocoder.coordinates(animal.location_lost).last
-    animal.image = params[:image]
-    animal.incident_id = params[:incident_id]
-    animal.user_id = @user.id
-    animal.tags = params[:tags].split(' ')
-    animal.tags.unshift(animal.species)
-    animal.tags.unshift(animal.location_lost)
-    animal.tags = animal.tags.uniq
-    animal.reunited = false
-    animal.tags.map! do |tag|
-      tag.downcase
-    end
-    if animal.save
-      redirect_to(lost_animals_path)
-    else
+    if User.find_by(id: session[:user_id]) == nil
       redirect_to '/login'
+    else
+      @user = User.find_by(id: session[:user_id])
+      animal = LostAnimal.new
+      animal.species = params[:species]
+      animal.date_lost = params[:date_lost]
+      animal.location_lost = params[:location_lost]
+      animal.lat = Geocoder.coordinates(animal.location_lost).first
+      animal.long = Geocoder.coordinates(animal.location_lost).last
+      animal.image = params[:image]
+      animal.incident_id = params[:incident_id]
+      animal.user_id = @user.id
+      animal.tags = params[:tags].split(' ')
+      animal.tags.unshift(animal.species)
+      animal.tags.unshift(animal.location_lost)
+      animal.tags = animal.tags.uniq
+      animal.reunited = false
+      animal.tags.map! do |tag|
+        tag.downcase
+      end
+      animal.save
+      redirect_to(lost_animals_path)
     end
   end
   

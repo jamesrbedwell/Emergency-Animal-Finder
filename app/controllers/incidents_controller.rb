@@ -2,13 +2,8 @@ class IncidentsController < ApplicationController
 
   def index
     @incidents = Incident.all
-    if session[:user_id] 
+    if session[:user_id]
       @current_user = User.find_by(id: session[:user_id])
-      if @current_user.admin_privilege
-        render layout: 'admin'
-      else
-        render :index
-      end
     else
       render :index
     end
@@ -18,7 +13,7 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
   end
   
-
+ 
   def destroy
     incident = Incident.find_by(id: params[:id])
     if incident.destroy

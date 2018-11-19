@@ -1,6 +1,11 @@
-
-
-<p><%=@user.name%></p>
-<p><%=@user.email%></p>
+<div class="show-container">
+  <div class="show-content">
+    <h3>Contact User</h3>
+    <div class="profile">
+      <p>Name: <span><%=@user.name%></span></p>
+      <p>Email: <span><a href="mailto:<%= @user.email %>"><%= @user.email %></span></p>
+    </div>
+  </div>
+</div>
 
 
