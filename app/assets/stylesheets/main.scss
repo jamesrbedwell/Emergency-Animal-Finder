@@ -394,17 +394,17 @@ input:valid {
   border: 1px solid $success-color;
 }
 
-<<<<<<< HEAD
+img {
+  margin: 10px;
+  max-width: 80%;
+}
+
 .lat {
   display: none;
 }
 
 .long {
   display: none;
-=======
-.img {
-  width: 80%;
->>>>>>> master
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
