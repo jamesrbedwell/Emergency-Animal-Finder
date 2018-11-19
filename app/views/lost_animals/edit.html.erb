@@ -4,7 +4,7 @@
 <div class="form-container">
   <%= form_tag lost_animal_path(@animal), method: :put do %>
     <div class="form">
-      <label for="">Incident</label>
+      <label for="">Incident<span>*</span></label>
       <select name="incident_id" id="">
         <% @incidents.each do |incident| %>
           <% if @animal.incident.id === incident.id  %>
@@ -14,7 +14,7 @@
           <% end %>
         <% end %>
       </select>
-      <label for="">Species</label>
+      <label for="">Species<span>*</span></label>
       <select name="species" id="">
         <% @animal_species.each do |species| %>
           <% if @animal.species === species %>
@@ -24,9 +24,9 @@
           <% end %>
         <% end  %>
       </select>
-      <label for="">Date Animal was lost</label>
+      <label for="">Date Animal was lost<span>*</span></label>
       <input type="date" name="date_lost" value="<%= @animal.date_lost %>" class="datefield" required>
-      <label for="">Location of the Animal lost</label>
+      <label for="">Location of the Animal lost<span>*</span></label>
       <input type="text" name="location_lost" value="<%= @animal.location_lost %>" required>
       <label for="">Image of Animal</label>
       <input type="file" name="image">
@@ -36,11 +36,10 @@
       <select name="reunited" id="">
         <% if @animal.reunited === false %>
           <option value="false" selected>No</option>
-        <% else %>
           <option value="true">Yes</option>
         <% end %>
       </select>
-      
+      <p>* Required Fields</p>
       <button>Edit Animal</button>
     </div>
   <% end %>
