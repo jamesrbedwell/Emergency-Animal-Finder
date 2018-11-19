@@ -399,6 +399,14 @@ img {
   max-width: 80%;
 }
 
+.lat {
+  display: none;
+}
+
+.long {
+  display: none;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
 
   nav {

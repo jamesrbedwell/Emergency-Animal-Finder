@@ -1,36 +1,3 @@
-const userLocation = {
-    position: null
-}
-
-const GEO_OPTIONS = {
-    enableHighAccuracy: true, 
-    maximumAge        : 30000, 
-    timeout           : 27000
-};
-
-const getLocation = (options = {}) => {
-    navigator.geolocation.watchPosition(
-        (position) => {
-            userLocation.position = {
-                lat: position.coords.latitude, 
-                long: position.coords.longitude
-            }
-            $.ajax({
-                url : "/customurl",
-                type : "post",
-                data : { data_value: JSON.stringify(userLocation.position) }
-            });
-           //console.log('user', userLocation.position.lat);
-        }, 
-        () => alert("Sorry, no position available."), 
-        {
-            ...GEO_OPTIONS,
-            ...options
-        }
-    );
-}
-    
-
 const pinPointsOnMap = locations => {
     let map = L.map('mapContainer').setView([-37.81, 144.96], 8);
     
@@ -70,8 +37,6 @@ if (/\/found_animals\/?$/.test(window.location.pathname)) {
 
     console.log(foundLocations)
     pinPointsOnMap(foundLocations);
-    getLocation();
-
 }
 
 if (/\/lost_animals\/?$/.test(window.location.pathname)) {
@@ -85,5 +50,4 @@ if (/\/lost_animals\/?$/.test(window.location.pathname)) {
     }
     //console.log(lostLocations)
     pinPointsOnMap(lostLocations);
-    getLocation();
 }
