@@ -206,7 +206,7 @@ nav a:hover {
   border-radius: 0.3rem;
   opacity: 0.8;
   transition: all ease-in-out 0.2s;
-  width: 20%;
+  width: 30%;
 }
 
 .form button:hover {
@@ -394,12 +394,17 @@ input:valid {
   border: 1px solid $success-color;
 }
 
+<<<<<<< HEAD
 .lat {
   display: none;
 }
 
 .long {
   display: none;
+=======
+.img {
+  width: 80%;
+>>>>>>> master
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

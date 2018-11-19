@@ -26,5 +26,11 @@
     <%# else %>
     <%# shows a contact user button %>
     <%# end %>
+
+    <h3>Health Status: <span><%= @animal.health_status.capitalize %></span></h3>
+    <%= link_to "Contact: #{@animal.user.name}", "/users/profile/#{@animal.user.id}", class: 'link-btn show' %>
+    <% if @animal.user.id == session[:user_id] %>
+      <a href="<%= edit_found_animal_path(@animal) %>" class="link-btn show">Edit Animal</a>
+    <% end %>
   </div>
 </div>

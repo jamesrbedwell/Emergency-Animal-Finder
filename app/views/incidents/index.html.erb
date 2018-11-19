@@ -6,9 +6,9 @@
       <h1><%= incident.name %></h1> 
       <h4><%= incident.category.capitalize %> </h4>
       <h3>Lost Animals: <span><%= incident.lost_animals.count %></span> Found Animals <span><%= incident.found_animals.count %></span></h3>
-       <% if @current_user && @current_user.admin_privilege %>
-     <%= form_tag "/incidents/#{incident.id}", method: 'delete' do %>
-        <button>delete</button>
+      <% if @current_user && @current_user.admin_privilege %>
+        <%= form_tag "/incidents/#{incident.id}", method: 'delete', class: 'form' do %>
+          <button>Delete Incident</button>
         <% end %>
     <% end %>
     </a>
