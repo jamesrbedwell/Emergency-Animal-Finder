@@ -4,28 +4,30 @@
 <div class="form-container">
   <%= form_tag found_animals_path, enctype: 'multipart/form-data', method: :post do %>
     <div class="form">
-      <label for="">Incident </label>
-      <select name="incident_id" id="">
+      <label for="">Incident<span>*</span></label>
+      <select name="incident_id" id="" required>
+        <option value="" disabled selected>Please Select An Incident</option>
         <% @incidents.each do |incident| %>
           <option value="<%= incident.id %>"><%= incident.name %></option>
         <% end %>
       </select>
-      <label for="">Species</label>
-      <select name="species" id="">
+      <label for="">Species<span>*</span></label>
+      <select name="species" id="" required>
+        <option value="" disabled selected>Please Select A Species</option>
         <% @species.each do |species| %>
           <option value="<%= species %>" ><%= species.capitalize() %></option>
         <% end %>
       </select>
-      <label for="">Date Animal was Found</label>
+      <label for="">Date Animal was Found<span>*</span></label>
       <input type="date" name="date_found" class="datefield" required>
-      <label for="">Location Animal was Found</label>
+      <label for="">Location Animal was Found<span>*</span></label>
       <input type="text" name="location_found" required>
-      <label for="">Current Location of Animal (please include the city)</label>
+      <label for="">Current Location of Animal (please include the city)<span>*</span></label>
       <input type="text" name="location_current" required>
       <label for="">Please upload an image of the animal</label>
       <%= file_field :post, :image %>
-      <label for="">Health Status</label>
-      <select name="health_status" id="">
+      <label for="">Health Status<span>*</span></label>
+      <select name="health_status" id="" required>
         <option value="" selected disabled>Please Select Health Status</option>
         <% @health_status.each do |status| %>
           <option value="<%= status %>"><%= status.capitalize() %></option>
@@ -33,6 +35,7 @@
       </select>
       <label for="">Please enter single word tags</label>
       <textarea name="tags"></textarea>
+      <p>* Required Fields</p>
       <button>Add Animal</button>
     </div>
   <% end %>
