@@ -1,7 +1,7 @@
 <h2 class="page-title">Edit your animals details</h2>
 <h5 class="sub-title">Please update the animals details below.</h5>
 <div class="form-container">
-  <%= form_tag found_animal_path(@animal), method: :put do %>
+  <%= form_tag found_animal_path(@animal), multipart: true, method: :put do %>
     <div class="form">
       <label for="">Incident<span>*</span></label>
       <select name="incident_id" id="">
