@@ -15,6 +15,9 @@
       <%= link_to 'Incidents', incidents_path %>
       <%= link_to 'Lost an Animal?', new_lost_animal_path %>
       <%= link_to 'Found an Animal?', new_found_animal_path %>
+      <% if @current_user && @current_user.admin_privilege %>
+        <%= link_to 'Add Incident', new_incident_path %>
+      <% end %>
     </div> 
     <div class="user-links">
       <% @current_user = User.find_by(id: session[:user_id])%>

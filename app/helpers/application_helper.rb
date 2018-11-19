@@ -4,6 +4,6 @@ module ApplicationHelper
     end
      
     def current_user 
-      User.find_by(id: params[:id])
+      User.find_by(id: session[:id])
     end
 end

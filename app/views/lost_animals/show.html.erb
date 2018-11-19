@@ -15,8 +15,8 @@
     <h3 id="user_location"></h3>
     <h3>Date lost: <span><%= @animal.date_lost %></span></h3>
     <%= link_to "Contact #{@animal.user.name}", "/users/profile/#{@animal.user.id}", class: 'link-btn show' %>
-    <%if @animal.user.id == session[:user_id]%>
+    <% if @animal.user.id == session[:user_id] %>
     <a href="<%= edit_lost_animal_path(@animal) %>" class="link-btn show">Edit Animal</a>
-    <%end%>
+    <% end %>
   </div>
 </div>

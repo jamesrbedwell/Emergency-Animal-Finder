@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :found_animals, except: [:destroy]
   resources :lost_animals
   resources :users
-  resources :incidents, only: [:index, :show, :create, :delete] 
+  resources :incidents
   
   get '/login', to: 'session#new'
   delete 'incidents/:id', to: 'incidents#destroy'
