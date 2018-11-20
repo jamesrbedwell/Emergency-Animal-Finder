@@ -17,7 +17,7 @@ People who have found or rescued animals can also log onto the app, search to se
 * [Ruby on Rails](https://guides.rubyonrails.org/)
 * [Leaflet](https://leafletjs.com/)
 * [carrierwave](https://rubygems.org/gems/carrierwave)
-* [geocoder](https://rubygems.org/gems/geocoder)=
+* [geocoder](https://rubygems.org/gems/geocoder)
 
 ## Challenges
 We would like to have the images load onto our S3 account.
